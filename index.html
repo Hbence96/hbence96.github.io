@@ -1,10 +1,205 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
-    <title>Bence első weboldala</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utazz velünk Dubaiba</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+    }
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+        url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .hero {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 21px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 30px;
+      background: #d4af37;
+      color: #111;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+    section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 40px;
+      color: #d4af37;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #171717;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 25px;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #fff;
+    }
+    .card p {
+      color: #cfcfcf;
+      line-height: 1.6;
+    }
+    .why {
+      background: #111;
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+    }
+    .packages .card {
+      border: 1px solid #333;
+    }
+    .price {
+      font-size: 24px;
+      color: #d4af37;
+      font-weight: bold;
+    }
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, #111, #222);
+      border-radius: 25px;
+      padding: 50px 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #050505;
+      color: #aaa;
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+      .hero p {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Üdvözöllek a weboldalamon!</h1>
-    <p>Ezt a weboldalt telefonról készítettem.</p>
+<header>
+  <div class="hero">
+    <h1>Utazz velünk Dubaiba</h1>
+    <p>Fedezd fel Dubait magyar nyelvű segítséggel, helyi tapasztalattal és személyre szabott programokkal.</p>
+    <a href="#kapcsolat" class="btn">Érdeklődés WhatsAppon</a>
+  </div>
+</header>
+<section>
+  <h2>Programok Dubaiban</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526495124232-a04e1849168c?auto=format&fit=crop&w=1000&q=80" alt="Dubai városnézés">
+      <div class="card-content">
+        <h3>Dubai városnézés</h3>
+        <p>Burj Khalifa, Dubai Marina, Palm Jumeirah, régi Dubai és modern látványosságok egy nap alatt.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1000&q=80" alt="Sivatagi túra">
+      <div class="card-content">
+        <h3>Sivatagi élmény</h3>
+        <p>Dűnék, naplemente, fotózás, vacsora és igazi arab hangulat a dubaji sivatagban.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=1000&q=80" alt="Abu Dhabi">
+      <div class="card-content">
+        <h3>Abu Dhabi kirándulás</h3>
+        <p>Sheikh Zayed mecset, Qasr Al Watan, Corniche és prémium egész napos program.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="why">
+    <h2>Miért velünk?</h2>
+    <p>Magyar nyelvű segítség, rugalmas programok, helyi tapasztalat és személyes ajánlások. Nem tömegturizmus, hanem olyan Dubai, amit tényleg érdemes látni.</p>
+  </div>
+</section>
+<section class="packages">
+  <h2>Ajánlott csomagok</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <h3>3 napos Dubai élmény</h3>
+        <p>Rövid városnézés, sivatagi program és főbb látványosságok.</p>
+        <p class="price">Egyedi ajánlat alapján</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>5 napos Dubai program</h3>
+        <p>Városnézés, sivatag, strand, kilátók és fakultatív Abu Dhabi.</p>
+        <p class="price">Legnépszerűbb</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>7 napos prémium út</h3>
+        <p>Teljes Dubai élmény kényelmes tempóban, személyre szabott programokkal.</p>
+        <p class="price">Prémium csomag</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="kapcsolat">
+  <div class="contact">
+    <h2>Kapcsolat</h2>
+    <p>Írj nekünk, és segítünk megtervezni a dubaji utazásodat.</p>
+    <p><strong>WhatsApp:</strong> +971 XX XXX XXXX</p>
+    <p><strong>Email:</strong> info@utazzvelunkdubaiba.hu</p>
+    <a href="https://wa.me/971XXXXXXXXX" class="btn">Írás WhatsAppon</a>
+  </div>
+</section>
+<footer>
+  <p>© 2026 Utazz velünk Dubaiba. Minden jog fenntartva.</p>
+</footer>
 </body>
 </html>
