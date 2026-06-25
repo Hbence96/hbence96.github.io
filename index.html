@@ -367,11 +367,51 @@
     <p>Írj nekünk, és segítünk megtervezni a dubaji utazásodat.</p>
     <p><strong>WhatsApp:</strong> +971 XX XXX XXXX</p>
     <p><strong>Email:</strong> info@utazzvelunkdubaiba.hu</p>
-    <a href="https://wa.me/971XXXXXXXXX" class="btn">Írás WhatsAppon</a>
+    <a href="https://wa.me/+971505109603" class="btn">Írás WhatsAppon</a>
   </div>
 </section>
 <footer>
   <p>© 2026 Utazz velünk Dubaiba. Minden jog fenntartva.</p>
 </footer>
 </body>
+<script>
+function sendTransferWhatsApp() {
+  const phoneNumber = "971505109603";
+
+  const message =
+`🚖 Új transzfer foglalás
+
+Travel Date / Utazás dátuma:
+${document.getElementById("travelDate").value}
+
+Full Name / Teljes név:
+${document.getElementById("fullName").value}
+
+Email / E-mail cím:
+${document.getElementById("email").value}
+
+Contact Number / Telefonszám:
+${document.getElementById("contactNumber").value}
+
+Program / Választott program:
+Privát reptéri transzfer
+
+Flight Number / Járatszám:
+${document.getElementById("flightNumber").value}
+
+Pickup Location / Felvételi hely:
+${document.getElementById("pickupLocation").value}
+
+Drop-off Location / Érkezési hely:
+${document.getElementById("dropoffLocation").value}
+
+Number of Passengers / Utasok száma:
+${document.getElementById("passengers").value}
+
+Number of Large Suitcases / Nagy bőröndök száma:
+${document.getElementById("suitcases").value}`;
+
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+}
+</script>
 </html>
