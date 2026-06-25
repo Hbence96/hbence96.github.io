@@ -4,127 +4,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utazz velünk Dubaiba</title>
-   <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: white;
-    }
-    header {
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-        url("https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      padding: 40px 20px;
-    }
-    .hero {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      font-size: 21px;
-      line-height: 1.6;
-      color: #f1f1f1;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 15px 30px;
-      background: #d4af37;
-      color: #111;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-    }
-    section {
-      padding: 70px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 40px;
-      color: #d4af37;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
-    .card {
-      background: #171717;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-    .card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 25px;
-    }
-    .card h3 {
-      margin-top: 0;
-      color: #fff;
-    }
-    .card p {
-      color: #cfcfcf;
-      line-height: 1.6;
-    }
-    .why {
-      background: #111;
-      border-radius: 25px;
-      padding: 40px;
-      text-align: center;
-    }
-    .packages .card {
-      border: 1px solid #333;
-    }
-    .price {
-      font-size: 24px;
-      color: #d4af37;
-      font-weight: bold;
-    }
-    .contact {
-      text-align: center;
-      background: linear-gradient(135deg, #111, #222);
-      border-radius: 25px;
-      padding: 50px 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #050505;
-      color: #aaa;
-    }
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 36px;
-      }
-      .hero p {
-        font-size: 18px;
-      }
-    }
+  <style>
+    * { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: white;
+}
+header {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+    url("https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+}
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 30px;
+  z-index: 10;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+.social-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.social-icons a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+.hero {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 21px;
+  line-height: 1.6;
+  color: #f1f1f1;
+}
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 30px;
+  background: #d4af37;
+  color: #111;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+}
+section {
+  padding: 70px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+h2 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 40px;
+  color: #d4af37;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+.card {
+  background: #171717;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 25px;
+}
+.card h3 {
+  color: #fff;
+}
+.card p {
+  color: #cfcfcf;
+  line-height: 1.6;
+}
+.why {
+  background: #111;
+  border-radius: 25px;
+  padding: 40px;
+  text-align: center;
+}
+.price {
+  font-size: 24px;
+  color: #d4af37;
+  font-weight: bold;
+}
+.contact {
+  text-align: center;
+  background: linear-gradient(135deg, #111, #222);
+  border-radius: 25px;
+  padding: 50px 20px;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #050505;
+  color: #aaa;
+}
+@media (max-width: 600px) {
+  .topbar {
+    padding: 18px 20px;
+  }
+  .logo {
+    font-size: 18px;
+  }
+  .social-icons a {
+    font-size: 22px;
+  }
+  .hero h1 {
+    font-size: 36px;
+  }
+  .hero p {
+    font-size: 18px;
+  }
+}
   </style>
 </head>
 <body>
 <header>
+  <div class="topbar">
+    <div class="logo">Dubaimagyaroknak</div>
+<div class="social-icons">
+  <a href="https://www.facebook.com/share/g/1D439ntaYg/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">f</a>
+  <a href="https://www.instagram.com/desert_cinematography?igsh=MXZzN24xOTRnMDI4eg==" target="_blank" aria-label="Instagram">◎</a>
+  <a href="https://www.tiktok.com/@desert_cinematography?_r=1&_t=ZS-97VEhdRQTOC" target="_blank" aria-label="TikTok">♪</a>
+</div>
+  </div>
   <div class="hero">
     <h1>Utazz velünk Dubaiba</h1>
     <p>Fedezd fel Dubait magyar nyelvű segítséggel, helyi tapasztalattal és személyre szabott programokkal.</p>
@@ -133,69 +177,61 @@
 </header>
 <section>
   <h2>Programok Dubaiban</h2>
-  <div class="card">
-    <img src="61752960-E739-48F9-8A50-AD24C0085F5A.png" alt="Hotel foglalás Dubaiban">
-    <div class="card-content">
-        <h3>Hotel foglalás</h3>
-        <p>Segítünk megtalálni és lefoglalni a legjobb dubai szállást, legyen szó városi hotelről, tengerparti üdülőről vagy családbarát apartmanról.</p>
-        
-        <details>
-    <summary>További info</summary>
-    <p>Próba</p>
-</details>
-   
-     </div>
-</div>
   <div class="cards">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1526495124232-a04e1849168c?auto=format&fit=crop&w=1000&q=80" alt="Dubai városnézés">
+      <img src="61752960-E739-48F9-8A50-AD24C0085F5A.png" alt="Hotel foglalás Dubaiban">
       <div class="card-content">
-        <h3>Dubai városnézés</h3>
-        <p>Burj Khalifa, Dubai Marina, Palm Jumeirah, régi Dubai és modern látványosságok egy nap alatt.</p>
-        
+        <h3>Hotel foglalás</h3>
+        <p>Segítünk megtalálni és lefoglalni a legjobb dubai szállást, legyen szó városi hotelről, tengerparti üdülőről vagy családbarát apartmanról.</p>
         <details>
-    <summary>További info</summary>
-    <p>Próba</p>
-</details>
-     
-       </div>
-    </div>
-    <div class="card">
-      <img src="73286C25-009D-4718-80B4-6A39F137BC08.png" alt="Mleiha sivatag Sharjah vörös dűnék"> 
-      <div class="card-content">
-        <h3>Sivatagi élmény</h3>
-        <p>Dűnék, naplemente, fotózás, vacsora és igazi arab hangulat a dubaji sivatagban.</p>
-        
-        <details>
-    <summary>További info</summary>
-    <p>Próba</p>
-</details>
-
+          <summary>További info</summary>
+          <p>Próba</p>
+        </details>
       </div>
     </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=1000&q=80" alt="Abu Dhabi">
-      <div class="card-content">
-        <h3>Abu Dhabi kirándulás</h3>
-        <p>Sheikh Zayed mecset, Qasr Al Watan, Corniche és prémium egész napos program.</p>
-        
-        <details>
-    <summary>További info</summary>
-    <p>Próba</p>
-</details>
-
-      </div>
-    </div>
-    <div class="card">
-  <img src="44E76F37-5A80-4CEA-96A4-A3DD1375282B.png" alt="Privát reptéri transzfer Dubai"> 
-  <h3>Privát reptéri transzfer</h3>
-  <p>Kényelmes, megbízható privát transzfer Dubaj repülőteréről a szállásodra vagy vissza. Ideális pároknak, családoknak és kisebb csoportoknak.</p>
-  
-  <details>
-    <summary>További info</summary>
-    <p>Próba</p>
-</details>
-
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1526495124232-a04e1849168c?auto=format&fit=crop&w=1000&q=80" alt="Dubai városnézés">
+  <div class="card-content">
+    <h3>Dubai városnézés</h3>
+    <p>Burj Khalifa, Dubai Marina, Palm Jumeirah, régi Dubai és modern látványosságok egy nap alatt.</p>
+    <details>
+      <summary>További info</summary>
+      <p>Próba</p>
+    </details>
+  </div>
+</div>
+<div class="card">
+  <img src="73286C25-009D-4718-80B4-6A39F137BC08.png" alt="Mleiha sivatag Sharjah vörös dűnék">
+  <div class="card-content">
+    <h3>Sivatagi élmény</h3>
+    <p>Dűnék, naplemente, fotózás, vacsora és igazi arab hangulat a dubaji sivatagban.</p>
+    <details>
+      <summary>További info</summary>
+      <p>Próba</p>
+    </details>
+  </div>
+</div>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=1000&q=80" alt="Abu Dhabi">
+  <div class="card-content">
+    <h3>Abu Dhabi kirándulás</h3>
+    <p>Sheikh Zayed mecset, Qasr Al Watan, Corniche és prémium egész napos program.</p>
+    <details>
+      <summary>További info</summary>
+      <p>Próba</p>
+    </details>
+  </div>
+</div>
+<div class="card">
+  <img src="44E76F37-5A80-4CEA-96A4-A3DD1375282B.png" alt="Privát reptéri transzfer Dubai">
+  <div class="card-content">
+    <h3>Privát reptéri transzfer</h3>
+    <p>Kényelmes, megbízható privát transzfer Dubaj repülőteréről a szállásodra vagy vissza. Ideális pároknak, családoknak és kisebb csoportoknak.</p>
+    <details>
+      <summary>További info</summary>
+      <p>Próba</p>
+    </details>
+  </div>
 </div>
   </div>
 </section>
@@ -215,20 +251,20 @@
         <p class="price">Egyedi ajánlat alapján</p>
       </div>
     </div>
-    <div class="card">
-      <div class="card-content">
-        <h3>5 napos Dubai program</h3>
-        <p>Városnézés, sivatag, strand, kilátók és fakultatív Abu Dhabi.</p>
-        <p class="price">Legnépszerűbb</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h3>7 napos prémium út</h3>
-        <p>Teljes Dubai élmény kényelmes tempóban, személyre szabott programokkal.</p>
-        <p class="price">Prémium csomag</p>
-      </div>
-    </div>
+<div class="card">
+  <div class="card-content">
+    <h3>5 napos Dubai program</h3>
+    <p>Városnézés, sivatag, strand, kilátók és fakultatív Abu Dhabi.</p>
+    <p class="price">Legnépszerűbb</p>
+  </div>
+</div>
+<div class="card">
+  <div class="card-content">
+    <h3>7 napos prémium út</h3>
+    <p>Teljes Dubai élmény kényelmes tempóban, személyre szabott programokkal.</p>
+    <p class="price">Prémium csomag</p>
+  </div>
+</div>
   </div>
 </section>
 <section id="kapcsolat">
