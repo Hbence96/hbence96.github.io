@@ -373,6 +373,128 @@
     line-height: 30px;
   }
 
+
+
+  .lounge-player {
+    position: fixed;
+    left: 22px;
+    bottom: 22px;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .lounge-hint {
+    padding: 11px 14px;
+    border-radius: 18px;
+    color: rgba(255,255,255,0.92);
+    background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(120,95,45,0.16));
+    border: 1px solid rgba(255,215,150,0.24);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.34);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    font-size: 13px;
+    line-height: 1.3;
+    opacity: 1;
+    transition: 0.45s ease;
+    white-space: nowrap;
+  }
+
+  .lounge-hint.hide {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+  }
+
+  .lounge-toggle {
+    width: 66px;
+    height: 66px;
+    border: 1px solid rgba(255,215,150,0.35);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.22), rgba(130,95,40,0.14) 38%, rgba(20,20,20,0.72) 72%);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.42), inset 0 0 18px rgba(255,215,150,0.08);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: 0.3s ease;
+  }
+
+  .lounge-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.5), 0 0 24px rgba(212,175,55,0.18);
+  }
+
+  .lounge-toggle.playing {
+    box-shadow: 0 18px 46px rgba(0,0,0,0.52), 0 0 28px rgba(212,175,55,0.28), inset 0 0 20px rgba(255,215,150,0.12);
+  }
+
+  .compass-disc {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    background:
+      radial-gradient(circle, rgba(255,230,170,0.95) 0 4px, rgba(80,55,25,0.95) 5px 8px, transparent 9px),
+      conic-gradient(from 45deg, rgba(212,175,55,0.95), rgba(115,82,35,0.95), rgba(245,215,140,0.9), rgba(80,58,28,0.95), rgba(212,175,55,0.95));
+    border: 1px solid rgba(255,230,170,0.55);
+    box-shadow: inset 0 0 14px rgba(0,0,0,0.45);
+  }
+
+  .compass-disc::before,
+  .compass-disc::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .compass-disc::before {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,245,210,0.46);
+  }
+
+  .compass-disc::after {
+    width: 4px;
+    height: 34px;
+    background: linear-gradient(to bottom, rgba(255,245,210,0.95), rgba(212,175,55,0.25), rgba(40,25,12,0.9));
+    clip-path: polygon(50% 0, 100% 44%, 62% 44%, 62% 100%, 38% 100%, 38% 44%, 0 44%);
+  }
+
+  .lounge-toggle.playing .compass-disc {
+    animation: slowCompassSpin 9s linear infinite;
+  }
+
+  @keyframes slowCompassSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .music-state-dot {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.55);
+  }
+
+  .lounge-toggle.playing .music-state-dot {
+    background: #d4af37;
+    border-color: rgba(255,245,210,0.9);
+    box-shadow: 0 0 12px rgba(212,175,55,0.85);
+  }
+
   footer {
     text-align: center;
     padding: 25px;
@@ -420,6 +542,30 @@
     .reviews-card {
       padding: 28px 18px;
     }
+
+    .lounge-player {
+      left: 14px;
+      bottom: 14px;
+      gap: 8px;
+    }
+
+    .lounge-toggle {
+      width: 58px;
+      height: 58px;
+    }
+
+    .compass-disc {
+      width: 42px;
+      height: 42px;
+    }
+
+    .lounge-hint {
+      max-width: 190px;
+      white-space: normal;
+      font-size: 12px;
+      padding: 10px 12px;
+    }
+
   }
 </style>
 </head>
@@ -579,6 +725,15 @@
 <footer>
   <p>© 2026 Utazz velünk Dubaiba. Minden jog fenntartva.</p>
 </footer>
+
+<div class="lounge-player" aria-label="Arabic lounge háttérzene lejátszó">
+  <div id="loungeHint" class="lounge-hint">🎵 Kapcsold be az Arabic Lounge háttérzenét</div>
+  <button id="loungeToggle" class="lounge-toggle" onclick="toggleLoungeMusic()" aria-label="Háttérzene indítása vagy megállítása">
+    <span class="compass-disc"></span>
+    <span class="music-state-dot"></span>
+  </button>
+</div>
+
 <div id="fbPopup" class="fb-popup">
   <div class="fb-popup-box">
     <button class="fb-close-btn" onclick="closeFbPopup()" aria-label="Bezárás">×</button>
@@ -596,6 +751,75 @@
 </div>
 </body>
 <script>
+
+const loungePlaylist = [
+  "Music1.mp3.mp3",
+  "Music2.mp3.mp3"
+];
+
+let loungeAudio = new Audio();
+let loungePlaying = false;
+let lastTrackIndex = -1;
+loungeAudio.volume = 0.15;
+
+function getRandomTrackIndex() {
+  if (loungePlaylist.length === 1) return 0;
+  let nextIndex;
+  do {
+    nextIndex = Math.floor(Math.random() * loungePlaylist.length);
+  } while (nextIndex === lastTrackIndex);
+  lastTrackIndex = nextIndex;
+  return nextIndex;
+}
+
+function playRandomLoungeTrack() {
+  const trackIndex = getRandomTrackIndex();
+  loungeAudio.src = loungePlaylist[trackIndex];
+  loungeAudio.play().then(function () {
+    loungePlaying = true;
+    updateLoungeButton();
+  }).catch(function () {
+    loungePlaying = false;
+    updateLoungeButton();
+  });
+}
+
+function toggleLoungeMusic() {
+  const hint = document.getElementById("loungeHint");
+  if (hint) hint.classList.add("hide");
+
+  if (!loungePlaying) {
+    playRandomLoungeTrack();
+  } else {
+    loungeAudio.pause();
+    loungePlaying = false;
+    updateLoungeButton();
+  }
+}
+
+function updateLoungeButton() {
+  const button = document.getElementById("loungeToggle");
+  if (!button) return;
+  if (loungePlaying) {
+    button.classList.add("playing");
+    button.setAttribute("aria-label", "Háttérzene megállítása");
+  } else {
+    button.classList.remove("playing");
+    button.setAttribute("aria-label", "Háttérzene indítása");
+  }
+}
+
+loungeAudio.addEventListener("ended", function () {
+  playRandomLoungeTrack();
+});
+
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    const hint = document.getElementById("loungeHint");
+    if (hint) hint.classList.add("hide");
+  }, 6500);
+});
+
 function sendTransferWhatsApp() {
   const phoneNumber = "971505109603";
 
