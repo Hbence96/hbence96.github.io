@@ -278,7 +278,7 @@
   .fb-popup {
     position: fixed;
     right: 22px;
-    bottom: 22px;
+    bottom: 18px;
     width: min(360px, calc(100vw - 44px));
     display: none;
     z-index: 9999;
@@ -377,12 +377,14 @@
 
   .lounge-player {
     position: fixed;
-    left: 22px;
-    bottom: 22px;
+    left: 18px;
+    right: auto;
+    bottom: 18px;
     z-index: 9998;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    transform: none;
   }
 
   .lounge-hint {
@@ -408,8 +410,8 @@
   }
 
   .lounge-toggle {
-    width: 66px;
-    height: 66px;
+    width: 54px;
+    height: 54px;
     border: 1px solid rgba(255,215,150,0.35);
     border-radius: 50%;
     background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.22), rgba(130,95,40,0.14) 38%, rgba(20,20,20,0.72) 72%);
@@ -435,8 +437,8 @@
   }
 
   .compass-disc {
-    width: 48px;
-    height: 48px;
+    width: 39px;
+    height: 39px;
     border-radius: 50%;
     position: relative;
     background:
@@ -456,15 +458,15 @@
   }
 
   .compass-disc::before {
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     border: 1px solid rgba(255,245,210,0.46);
   }
 
   .compass-disc::after {
-    width: 4px;
-    height: 34px;
+    width: 3px;
+    height: 28px;
     background: linear-gradient(to bottom, rgba(255,245,210,0.95), rgba(212,175,55,0.25), rgba(40,25,12,0.9));
     clip-path: polygon(50% 0, 100% 44%, 62% 44%, 62% 100%, 38% 100%, 38% 44%, 0 44%);
   }
@@ -493,6 +495,94 @@
     background: #d4af37;
     border-color: rgba(255,245,210,0.9);
     box-shadow: 0 0 12px rgba(212,175,55,0.85);
+  }
+
+
+  .scroll-cue {
+    margin: 115px auto 0;
+    width: 118px;
+    height: 168px;
+    border-radius: 42px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(212,175,55,0.06));
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.30), inset 0 0 20px rgba(255,255,255,0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.95;
+  }
+
+  .scroll-arrows {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 82px;
+  }
+
+  .scroll-arrows span {
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-left: 3px solid rgba(255,255,255,0.82);
+    border-top: 3px solid rgba(255,255,255,0.82);
+    transform: translateX(-50%) rotate(45deg);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+    animation: arrowStackPulse 1.6s ease-in-out infinite;
+  }
+
+  .scroll-arrows span:nth-child(1) { top: 0; animation-delay: 0s; }
+  .scroll-arrows span:nth-child(2) { top: 14px; animation-delay: 0.12s; opacity: 0.78; }
+  .scroll-arrows span:nth-child(3) { top: 28px; animation-delay: 0.24s; opacity: 0.62; }
+  .scroll-arrows span:nth-child(4) { top: 42px; animation-delay: 0.36s; opacity: 0.48; }
+  .scroll-arrows span:nth-child(5) { top: 56px; animation-delay: 0.48s; opacity: 0.34; }
+
+  .scroll-cue-hand {
+    position: absolute;
+    left: 8px;
+    bottom: 10px;
+    font-size: 34px;
+    line-height: 1;
+    transform-origin: center;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.48));
+    animation: sideFingerSwipeUp 1.6s ease-in-out infinite;
+  }
+
+  @keyframes sideFingerSwipeUp {
+    0% {
+      opacity: 0.45;
+      transform: translate(0, 34px) rotate(-28deg) scale(0.92);
+    }
+    28% {
+      opacity: 1;
+      transform: translate(25px, 4px) rotate(-20deg) scale(1);
+    }
+    60% {
+      opacity: 0.95;
+      transform: translate(45px, -58px) rotate(-14deg) scale(1.02);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(48px, -88px) rotate(-12deg) scale(0.96);
+    }
+  }
+
+  @keyframes arrowStackPulse {
+    0%, 100% {
+      opacity: 0.22;
+      transform: translate(-50%, 10px) rotate(45deg);
+    }
+    45% {
+      opacity: 1;
+      transform: translate(-50%, -4px) rotate(45deg);
+    }
   }
 
   footer {
@@ -544,19 +634,21 @@
     }
 
     .lounge-player {
-      left: 14px;
-      bottom: 14px;
+      left: 16px;
+      right: auto;
+      bottom: 78px;
       gap: 8px;
+      transform: none;
     }
 
     .lounge-toggle {
-      width: 58px;
-      height: 58px;
+      width: 50px;
+      height: 50px;
     }
 
     .compass-disc {
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
     }
 
     .lounge-hint {
@@ -566,7 +658,42 @@
       padding: 10px 12px;
     }
 
+    .scroll-cue {
+      width: 108px;
+      height: 150px;
+      margin-top: 100px;
+    }
+
+    .scroll-cue-hand {
+      font-size: 31px;
+    }
+
+    .scroll-arrows {
+      top: 18px;
+    }
+
   }
+
+<style>
+/* Chat/player position fixes */
+.music-player,.music-widget,.lounge-player,#musicPlayer{
+position:fixed!important;
+left:20px!important;
+bottom:20px!important;
+right:auto!important;
+top:auto!important;
+transform:none!important;
+width:58px!important;
+height:58px!important;
+z-index:9998!important;
+}
+.scroll-indicator,#scrollIndicator,.scroll-hint{
+position:absolute!important;
+left:50%!important;
+transform:translateX(-50%)!important;
+bottom:8px!important;
+}
+</style>
 </style>
 </head>
 <body>
@@ -594,6 +721,16 @@
     <h1>Utazz velünk Dubaiba</h1>
     <p>Fedezd fel Dubait magyar nyelvű segítséggel, helyi tapasztalattal és személyre szabott programokkal.</p>
     <a href="#kapcsolat" class="btn">Érdeklődés WhatsAppon</a>
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="scroll-arrows">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="scroll-cue-hand">☝️</span>
+    </div>
   </div>
 </header>
 <section>
