@@ -674,26 +674,123 @@
 
   }
 
-<style>
-/* Chat/player position fixes */
-.music-player,.music-widget,.lounge-player,#musicPlayer{
-position:fixed!important;
-left:20px!important;
-bottom:20px!important;
-right:auto!important;
-top:auto!important;
-transform:none!important;
-width:58px!important;
-height:58px!important;
-z-index:9998!important;
-}
-.scroll-indicator,#scrollIndicator,.scroll-hint{
-position:absolute!important;
-left:50%!important;
-transform:translateX(-50%)!important;
-bottom:8px!important;
-}
-</style>
+
+  /* VÉGLEGES FINOMHANGOLÁS: zene ikon + scroll jelzés */
+  .lounge-player {
+    position: fixed !important;
+    left: 14px !important;
+    right: auto !important;
+    bottom: 14px !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 9998 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    opacity: 0.48;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .lounge-player:hover,
+  .lounge-player:active {
+    opacity: 0.9;
+  }
+
+  .lounge-player .lounge-hint {
+    display: none !important;
+  }
+
+  .lounge-toggle {
+    width: 46px !important;
+    height: 46px !important;
+    opacity: 0.72;
+  }
+
+  .lounge-toggle.playing {
+    opacity: 0.82;
+  }
+
+  .compass-disc {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .music-state-dot {
+    width: 9px !important;
+    height: 9px !important;
+    right: 5px !important;
+    bottom: 5px !important;
+  }
+
+  .scroll-cue {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 14px !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    width: 96px !important;
+    height: 132px !important;
+    border-radius: 36px !important;
+    pointer-events: none !important;
+    z-index: 6 !important;
+    opacity: 0.88 !important;
+  }
+
+  .scroll-arrows {
+    top: 15px !important;
+    height: 70px !important;
+  }
+
+  .scroll-arrows span {
+    width: 15px !important;
+    height: 15px !important;
+    border-left-width: 2px !important;
+    border-top-width: 2px !important;
+  }
+
+  .scroll-arrows span:nth-child(1) { top: 0 !important; }
+  .scroll-arrows span:nth-child(2) { top: 12px !important; }
+  .scroll-arrows span:nth-child(3) { top: 24px !important; }
+  .scroll-arrows span:nth-child(4) { top: 36px !important; }
+  .scroll-arrows span:nth-child(5) { top: 48px !important; }
+
+  .scroll-cue-hand {
+    left: 5px !important;
+    bottom: 7px !important;
+    font-size: 28px !important;
+  }
+
+  @media (max-width: 600px) {
+    .lounge-player {
+      left: 12px !important;
+      bottom: 12px !important;
+      opacity: 0.42;
+    }
+
+    .lounge-toggle {
+      width: 42px !important;
+      height: 42px !important;
+    }
+
+    .compass-disc {
+      width: 29px !important;
+      height: 29px !important;
+    }
+
+    .scroll-cue {
+      bottom: 8px !important;
+      width: 88px !important;
+      height: 118px !important;
+      border-radius: 32px !important;
+    }
+
+    .scroll-cue-hand {
+      font-size: 25px !important;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -897,7 +994,7 @@ const loungePlaylist = [
 let loungeAudio = new Audio();
 let loungePlaying = false;
 let lastTrackIndex = -1;
-loungeAudio.volume = 0.15;
+loungeAudio.volume = 0.08;
 
 function getRandomTrackIndex() {
   if (loungePlaylist.length === 1) return 0;
