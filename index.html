@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utazz velünk Dubaiba</title>
   <style>
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
   * {
     box-sizing: border-box;
   }
@@ -870,6 +871,180 @@
     }
   }
 
+
+  /* LUXUS FINOMHANGOLÁS - üveg, arany fény, prémium hangulat */
+  body {
+    background:
+      radial-gradient(circle at 18% 8%, rgba(212,175,55,0.10), transparent 28%),
+      radial-gradient(circle at 86% 42%, rgba(255,230,160,0.055), transparent 30%),
+      #070707;
+  }
+
+  .topbar {
+    position: fixed;
+    background: linear-gradient(135deg, rgba(6,6,6,0.72), rgba(34,26,12,0.34));
+    border-bottom: 1px solid rgba(212,175,55,0.22);
+    box-shadow: 0 12px 38px rgba(0,0,0,0.36);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .hero h1,
+  h2,
+  .contact h2,
+  .reviews-card h3,
+  .card h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: 0.3px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 7vw, 74px);
+    line-height: 1.03;
+    text-shadow: 0 10px 35px rgba(0,0,0,0.65);
+  }
+
+  .hero h1 span {
+    display: block;
+    background: linear-gradient(135deg, #fff8dc, #d4af37 45%, #9b741f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .hero::after {
+    content: "";
+    display: block;
+    width: 132px;
+    height: 1px;
+    margin: 24px auto 0;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.9), transparent);
+    box-shadow: 0 0 18px rgba(212,175,55,0.55);
+  }
+
+  section {
+    position: relative;
+  }
+
+  section::before {
+    content: "";
+    display: block;
+    width: min(720px, 82vw);
+    height: 1px;
+    margin: 0 auto 52px;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.42), transparent);
+  }
+
+  section:first-of-type::before {
+    display: none;
+  }
+
+  .card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(28,28,28,0.96), rgba(9,9,9,0.98));
+    border: 1px solid rgba(212,175,55,0.13);
+    box-shadow: 0 18px 48px rgba(0,0,0,0.42);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(255,237,177,0.20), transparent 32%, rgba(212,175,55,0.10));
+    transition: opacity 0.35s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(212,175,55,0.42);
+    box-shadow: 0 22px 58px rgba(0,0,0,0.58), 0 0 26px rgba(212,175,55,0.16);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card img {
+    filter: saturate(0.96) contrast(1.04) brightness(0.86);
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 190px;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.34)),
+                linear-gradient(135deg, rgba(212,175,55,0.16), transparent 46%);
+  }
+
+  .btn,
+  .reviews-btn {
+    border: 1px solid rgba(255,245,210,0.42);
+    text-transform: none;
+    letter-spacing: 0.2px;
+  }
+
+  .why,
+  .reviews-card,
+  .contact {
+    border: 1px solid rgba(212,175,55,0.18);
+    box-shadow: 0 20px 58px rgba(0,0,0,0.48), inset 0 0 28px rgba(212,175,55,0.045);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .contact {
+    max-width: 820px;
+    margin: auto;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(212,175,55,0.16), transparent 34%),
+      linear-gradient(135deg, rgba(18,18,18,0.98), rgba(42,31,12,0.88));
+  }
+
+  .contact::before {
+    content: "Premium Dubai Concierge";
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    color: #d4af37;
+    border: 1px solid rgba(212,175,55,0.34);
+    background: rgba(255,255,255,0.04);
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  .reviews-stars {
+    text-shadow: 0 0 18px rgba(212,175,55,0.55);
+  }
+
+  @media (max-width: 600px) {
+    .topbar {
+      padding: 14px 18px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+    }
+
+    section::before {
+      margin-bottom: 38px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -895,7 +1070,7 @@
     </div>
   </div>
   <div class="hero">
-    <h1>Utazz velünk Dubaiba</h1>
+    <h1><span>Utazz velünk</span> Dubaiba</h1>
     <p>Fedezd fel Dubait magyar nyelvű segítséggel, helyi tapasztalattal és személyre szabott programokkal.</p>
     <a href="#kapcsolat" class="btn">Érdeklődés WhatsAppon</a>
     <div class="scroll-cue" aria-hidden="true">
