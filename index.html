@@ -1,0 +1,3337 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utazz velünk Dubaiba | Modern Dubai Concierge</title>
+  <style>
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+  }
+
+  header {
+    min-height: 100vh;
+    background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+      url("https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+  }
+
+  .topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 22px 30px;
+    z-index: 10;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .social-icons a {
+    width: 34px;
+    height: 34px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+
+  .social-icons svg {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
+  }
+
+  .hero {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+
+  .hero p {
+    font-size: 21px;
+    line-height: 1.6;
+    color: #f1f1f1;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #f4d77d, #d4af37);
+    color: #111;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 10px 28px rgba(212,175,55,0.25);
+    transition: 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(212,175,55,0.35);
+  }
+
+  section {
+    padding: 70px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 40px;
+    color: #d4af37;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
+
+  .card {
+    background: linear-gradient(145deg, #171717, #101010);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  }
+
+  .card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-content {
+    padding: 25px;
+  }
+
+  .card h3 {
+    margin-top: 0;
+    color: #fff;
+  }
+
+  .card p {
+    color: #cfcfcf;
+    line-height: 1.6;
+  }
+
+  details {
+    margin-top: 15px;
+    color: #d4af37;
+    cursor: pointer;
+  }
+
+  details p {
+    color: #cfcfcf;
+  }
+
+  .why {
+    background: #111;
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .packages .card {
+    border: 1px solid #333;
+  }
+
+  .price {
+    font-size: 24px;
+    color: #d4af37;
+    font-weight: bold;
+  }
+
+  .contact {
+    text-align: center;
+    background: linear-gradient(135deg, #111, #222);
+    border-radius: 25px;
+    padding: 50px 20px;
+  }
+
+  .transfer-form {
+    margin-top: 20px;
+  }
+
+  .transfer-form h3 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .transfer-form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #fff;
+    color: #111;
+  }
+
+  .transfer-form input:focus {
+    outline: 2px solid #d4af37;
+  }
+
+  .whatsapp-form-btn {
+    width: 100%;
+    padding: 15px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .whatsapp-form-btn:hover {
+    background: #1ebe5d;
+  }
+
+  .reviews-card {
+    margin: 45px auto 0;
+    max-width: 760px;
+    padding: 34px 26px;
+    text-align: center;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  }
+
+  .reviews-stars {
+    color: #d4af37;
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+
+  .reviews-card h3 {
+    margin: 0 0 12px;
+    font-size: 26px;
+  }
+
+  .reviews-card p {
+    color: #d7d7d7;
+    line-height: 1.6;
+    margin: 0 auto 22px;
+    max-width: 580px;
+  }
+
+  .reviews-btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 30px;
+    color: #111;
+    background: linear-gradient(135deg, #f2f2f2, #bfc3c7);
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 10px 26px rgba(255,255,255,0.12);
+  }
+
+  .fb-popup {
+    position: fixed;
+    right: 22px;
+    bottom: 18px;
+    width: min(360px, calc(100vw - 44px));
+    display: none;
+    z-index: 9999;
+    animation: slideUpPopup 0.45s ease forwards;
+  }
+
+  @keyframes slideUpPopup {
+    from {
+      opacity: 0;
+      transform: translateY(25px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .fb-popup-box {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(170,175,185,0.10));
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 22px;
+    padding: 22px;
+    text-align: left;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .fb-popup-box::before {
+    content: "💬";
+    position: absolute;
+    top: -18px;
+    left: 18px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f5f5f5, #aeb4bb);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  .fb-popup-box h2 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 12px 28px 10px 0;
+  }
+
+  .fb-popup-box p {
+    color: rgba(255,255,255,0.86);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .fb-popup-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .fb-join-btn,
+  .fb-close-btn {
+    padding: 12px 14px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .fb-join-btn {
+    flex: 1;
+    background: #1877f2;
+    color: white;
+    text-align: center;
+  }
+
+  .fb-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: rgba(255,255,255,0.16);
+    color: white;
+    line-height: 30px;
+  }
+
+
+
+  .lounge-player {
+    position: fixed;
+    left: 18px;
+    right: auto;
+    bottom: 18px;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: none;
+  }
+
+  .lounge-hint {
+    padding: 11px 14px;
+    border-radius: 18px;
+    color: rgba(255,255,255,0.92);
+    background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(120,95,45,0.16));
+    border: 1px solid rgba(255,215,150,0.24);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.34);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    font-size: 13px;
+    line-height: 1.3;
+    opacity: 1;
+    transition: 0.45s ease;
+    white-space: nowrap;
+  }
+
+  .lounge-hint.hide {
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+  }
+
+  .lounge-toggle {
+    width: 54px;
+    height: 54px;
+    border: 1px solid rgba(255,215,150,0.35);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.22), rgba(130,95,40,0.14) 38%, rgba(20,20,20,0.72) 72%);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.42), inset 0 0 18px rgba(255,215,150,0.08);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: 0.3s ease;
+  }
+
+  .lounge-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.5), 0 0 24px rgba(212,175,55,0.18);
+  }
+
+  .lounge-toggle.playing {
+    box-shadow: 0 18px 46px rgba(0,0,0,0.52), 0 0 28px rgba(212,175,55,0.28), inset 0 0 20px rgba(255,215,150,0.12);
+  }
+
+  .compass-disc {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    position: relative;
+    background:
+      radial-gradient(circle, rgba(255,230,170,0.95) 0 4px, rgba(80,55,25,0.95) 5px 8px, transparent 9px),
+      conic-gradient(from 45deg, rgba(212,175,55,0.95), rgba(115,82,35,0.95), rgba(245,215,140,0.9), rgba(80,58,28,0.95), rgba(212,175,55,0.95));
+    border: 1px solid rgba(255,230,170,0.55);
+    box-shadow: inset 0 0 14px rgba(0,0,0,0.45);
+  }
+
+  .compass-disc::before,
+  .compass-disc::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .compass-disc::before {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,245,210,0.46);
+  }
+
+  .compass-disc::after {
+    width: 3px;
+    height: 28px;
+    background: linear-gradient(to bottom, rgba(255,245,210,0.95), rgba(212,175,55,0.25), rgba(40,25,12,0.9));
+    clip-path: polygon(50% 0, 100% 44%, 62% 44%, 62% 100%, 38% 100%, 38% 44%, 0 44%);
+  }
+
+  .lounge-toggle.playing .compass-disc {
+    animation: slowCompassSpin 9s linear infinite;
+  }
+
+  @keyframes slowCompassSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .music-state-dot {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.55);
+  }
+
+  .lounge-toggle.playing .music-state-dot {
+    background: #d4af37;
+    border-color: rgba(255,245,210,0.9);
+    box-shadow: 0 0 12px rgba(212,175,55,0.85);
+  }
+
+
+  .scroll-cue {
+    margin: 115px auto 0;
+    width: 118px;
+    height: 168px;
+    border-radius: 42px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(212,175,55,0.10));
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.30), inset 0 0 20px rgba(255,255,255,0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.95;
+  }
+
+  .scroll-arrows {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 82px;
+  }
+
+  .scroll-arrows span {
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border-left: 3px solid rgba(255,255,255,0.82);
+    border-top: 3px solid rgba(255,255,255,0.82);
+    transform: translateX(-50%) rotate(45deg);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+    animation: arrowStackPulse 1.6s ease-in-out infinite;
+  }
+
+  .scroll-arrows span:nth-child(1) { top: 0; animation-delay: 0s; }
+  .scroll-arrows span:nth-child(2) { top: 14px; animation-delay: 0.12s; opacity: 0.78; }
+  .scroll-arrows span:nth-child(3) { top: 28px; animation-delay: 0.24s; opacity: 0.62; }
+  .scroll-arrows span:nth-child(4) { top: 42px; animation-delay: 0.36s; opacity: 0.48; }
+  .scroll-arrows span:nth-child(5) { top: 56px; animation-delay: 0.48s; opacity: 0.34; }
+
+  .scroll-cue-hand {
+    position: absolute;
+    left: 8px;
+    bottom: 10px;
+    font-size: 34px;
+    line-height: 1;
+    transform-origin: center;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.48));
+    animation: sideFingerSwipeUp 1.6s ease-in-out infinite;
+  }
+
+  @keyframes sideFingerSwipeUp {
+    0% {
+      opacity: 0.45;
+      transform: translate(0, 34px) rotate(-28deg) scale(0.92);
+    }
+    28% {
+      opacity: 1;
+      transform: translate(25px, 4px) rotate(-20deg) scale(1);
+    }
+    60% {
+      opacity: 0.95;
+      transform: translate(45px, -58px) rotate(-14deg) scale(1.02);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(48px, -88px) rotate(-12deg) scale(0.96);
+    }
+  }
+
+  @keyframes arrowStackPulse {
+    0%, 100% {
+      opacity: 0.22;
+      transform: translate(-50%, 10px) rotate(45deg);
+    }
+    45% {
+      opacity: 1;
+      transform: translate(-50%, -4px) rotate(45deg);
+    }
+  }
+
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: #050505;
+    color: #aaa;
+  }
+
+  @media (max-width: 600px) {
+    .topbar {
+      padding: 18px 20px;
+    }
+
+    .social-icons {
+      gap: 12px;
+    }
+
+    .social-icons a {
+      width: 30px;
+      height: 30px;
+    }
+
+    .social-icons svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .fb-popup {
+      right: 14px;
+      bottom: 14px;
+      width: calc(100vw - 28px);
+    }
+
+    .fb-popup-box {
+      padding: 20px;
+    }
+
+    .reviews-card {
+      padding: 28px 18px;
+    }
+
+    .lounge-player {
+      left: 16px;
+      right: auto;
+      bottom: 78px;
+      gap: 8px;
+      transform: none;
+    }
+
+    .lounge-toggle {
+      width: 50px;
+      height: 50px;
+    }
+
+    .compass-disc {
+      width: 36px;
+      height: 36px;
+    }
+
+    .lounge-hint {
+      max-width: 190px;
+      white-space: normal;
+      font-size: 12px;
+      padding: 10px 12px;
+    }
+
+    .scroll-cue {
+      width: 108px;
+      height: 150px;
+      margin-top: 100px;
+    }
+
+    .scroll-cue-hand {
+      font-size: 31px;
+    }
+
+    .scroll-arrows {
+      top: 18px;
+    }
+
+  }
+
+
+  /* VÉGLEGES FINOMHANGOLÁS: zene ikon + scroll jelzés */
+  .lounge-player {
+    position: fixed !important;
+    left: 14px !important;
+    right: auto !important;
+    bottom: 14px !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 9998 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    opacity: 0.48;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .lounge-player:hover,
+  .lounge-player:active {
+    opacity: 0.9;
+  }
+
+  .lounge-player .lounge-hint {
+    display: none !important;
+  }
+
+  .lounge-toggle {
+    width: 46px !important;
+    height: 46px !important;
+    opacity: 0.72;
+  }
+
+  .lounge-toggle.playing {
+    opacity: 0.82;
+  }
+
+  .compass-disc {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .music-state-dot {
+    width: 9px !important;
+    height: 9px !important;
+    right: 5px !important;
+    bottom: 5px !important;
+  }
+
+  .scroll-cue {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 14px !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    width: 96px !important;
+    height: 132px !important;
+    border-radius: 36px !important;
+    pointer-events: none !important;
+    z-index: 6 !important;
+    opacity: 0.88 !important;
+  }
+
+  .scroll-arrows {
+    top: 15px !important;
+    height: 70px !important;
+  }
+
+  .scroll-arrows span {
+    width: 15px !important;
+    height: 15px !important;
+    border-left-width: 2px !important;
+    border-top-width: 2px !important;
+  }
+
+  .scroll-arrows span:nth-child(1) { top: 0 !important; }
+  .scroll-arrows span:nth-child(2) { top: 12px !important; }
+  .scroll-arrows span:nth-child(3) { top: 24px !important; }
+  .scroll-arrows span:nth-child(4) { top: 36px !important; }
+  .scroll-arrows span:nth-child(5) { top: 48px !important; }
+
+  .scroll-cue-hand {
+    left: 5px !important;
+    bottom: 7px !important;
+    font-size: 28px !important;
+  }
+
+  @media (max-width: 600px) {
+    .lounge-player {
+      left: 12px !important;
+      bottom: 12px !important;
+      opacity: 0.42;
+    }
+
+    .lounge-toggle {
+      width: 42px !important;
+      height: 42px !important;
+    }
+
+    .compass-disc {
+      width: 29px !important;
+      height: 29px !important;
+    }
+
+    .scroll-cue {
+      bottom: 8px !important;
+      width: 88px !important;
+      height: 118px !important;
+      border-radius: 32px !important;
+    }
+
+    .scroll-cue-hand {
+      font-size: 25px !important;
+    }
+  }
+
+
+  /* DESERT BREEZE - erősebb, sűrűbb prémium arany homokszél */
+  .desert-breeze {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 7;
+    opacity: 0;
+    transition: opacity 1.1s ease;
+  }
+
+  .desert-breeze.active {
+    opacity: 1;
+  }
+
+  .desert-breeze::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 35%, rgba(212,175,55,0.16), transparent 34%),
+                linear-gradient(110deg, transparent 0%, rgba(212,175,55,0.10) 45%, transparent 78%);
+    opacity: 0;
+    animation: desertWarmGlow 5.4s ease forwards;
+  }
+
+  .sand-grain {
+    position: absolute;
+    left: -50px;
+    top: var(--top);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,238,180,1), rgba(212,175,55,0.72) 48%, rgba(175,125,48,0) 78%);
+    box-shadow: 0 0 14px rgba(212,175,55,0.34);
+    filter: blur(var(--blur));
+    opacity: 0;
+    animation: desertSandDrift var(--duration) linear forwards;
+    animation-delay: var(--delay);
+  }
+
+  .sand-grain.soft {
+    background: radial-gradient(circle, rgba(228,186,98,0.62), rgba(180,126,48,0.32) 55%, rgba(168,118,47,0) 80%);
+    box-shadow: none;
+  }
+
+  .sand-grain.spark {
+    background: radial-gradient(circle, rgba(255,252,220,1), rgba(244,215,125,0.92) 44%, rgba(212,175,55,0) 76%);
+    box-shadow: 0 0 22px rgba(244,215,125,0.72);
+  }
+
+  @keyframes desertSandDrift {
+    0% {
+      opacity: 0;
+      transform: translate3d(-12vw, 0, 0) scale(0.65);
+    }
+    14% {
+      opacity: var(--opacity);
+    }
+    76% {
+      opacity: var(--opacity);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(116vw, var(--rise), 0) scale(1.06);
+    }
+  }
+
+  @keyframes desertWarmGlow {
+    0%, 100% { opacity: 0; }
+    28%, 68% { opacity: 1; }
+  }
+
+  @media (max-width: 600px) {
+    .desert-breeze {
+      z-index: 5;
+    }
+  }
+
+
+  /* LUXUS FINOMHANGOLÁS - üveg, arany fény, prémium hangulat */
+  body {
+    background:
+      radial-gradient(circle at 18% 8%, rgba(212,175,55,0.10), transparent 28%),
+      radial-gradient(circle at 86% 42%, rgba(255,230,160,0.055), transparent 30%),
+      #070707;
+  }
+
+  .topbar {
+    position: fixed;
+    background: linear-gradient(135deg, rgba(6,6,6,0.72), rgba(34,26,12,0.34));
+    border-bottom: 1px solid rgba(212,175,55,0.22);
+    box-shadow: 0 12px 38px rgba(0,0,0,0.36);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .hero h1,
+  h2,
+  .contact h2,
+  .reviews-card h3,
+  .card h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: 0.3px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 7vw, 74px);
+    line-height: 1.03;
+    text-shadow: 0 10px 35px rgba(0,0,0,0.65);
+  }
+
+  .hero h1 span {
+    display: block;
+    background: linear-gradient(135deg, #fff8dc, #d4af37 45%, #9b741f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .hero::after {
+    content: "";
+    display: block;
+    width: 132px;
+    height: 1px;
+    margin: 24px auto 0;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.9), transparent);
+    box-shadow: 0 0 18px rgba(212,175,55,0.55);
+  }
+
+  section {
+    position: relative;
+  }
+
+  section::before {
+    content: "";
+    display: block;
+    width: min(720px, 82vw);
+    height: 1px;
+    margin: 0 auto 52px;
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.42), transparent);
+  }
+
+  section:first-of-type::before {
+    display: none;
+  }
+
+  .card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(28,28,28,0.96), rgba(9,9,9,0.98));
+    border: 1px solid rgba(212,175,55,0.13);
+    box-shadow: 0 18px 48px rgba(0,0,0,0.42);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(255,237,177,0.20), transparent 32%, rgba(212,175,55,0.10));
+    transition: opacity 0.35s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(212,175,55,0.42);
+    box-shadow: 0 22px 58px rgba(0,0,0,0.58), 0 0 26px rgba(212,175,55,0.16);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card img {
+    filter: saturate(0.96) contrast(1.04) brightness(0.86);
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 190px;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.34)),
+                linear-gradient(135deg, rgba(212,175,55,0.16), transparent 46%);
+  }
+
+  .btn,
+  .reviews-btn {
+    border: 1px solid rgba(255,245,210,0.42);
+    text-transform: none;
+    letter-spacing: 0.2px;
+  }
+
+  .why,
+  .reviews-card,
+  .contact {
+    border: 1px solid rgba(212,175,55,0.18);
+    box-shadow: 0 20px 58px rgba(0,0,0,0.48), inset 0 0 28px rgba(212,175,55,0.045);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .contact {
+    max-width: 820px;
+    margin: auto;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(212,175,55,0.16), transparent 34%),
+      linear-gradient(135deg, rgba(18,18,18,0.98), rgba(42,31,12,0.88));
+  }
+
+  .contact::before {
+    content: "Premium Dubai";
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    color: #d4af37;
+    border: 1px solid rgba(212,175,55,0.34);
+    background: rgba(255,255,255,0.04);
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  .reviews-stars {
+    text-shadow: 0 0 18px rgba(212,175,55,0.55);
+  }
+
+  @media (max-width: 600px) {
+    .topbar {
+      padding: 14px 18px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+    }
+
+    section::before {
+      margin-bottom: 38px;
+    }
+  }
+
+
+  /* Extra szolgáltatások kollázs kártya */
+  .services-collage {
+    height: 190px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: #050505;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-collage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.42)),
+      linear-gradient(135deg, rgba(212,175,55,0.20), transparent 55%);
+    z-index: 2;
+  }
+
+  .services-collage span {
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.98) contrast(1.06) brightness(0.88);
+  }
+
+  .services-collage .ticket {
+    background-image: url("https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=700&q=80");
+  }
+
+  .services-collage .dinner {
+    background-image: url("https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=700&q=80");
+  }
+
+  .services-collage .jetski {
+    background-image: url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=80");
+  }
+
+  .services-collage .luxurycar {
+    background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=700&q=80");
+  }
+
+  .service-icons-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0 10px;
+  }
+
+  .service-icon-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 10px;
+    border-radius: 14px;
+    color: #f3e2a7;
+    background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.22);
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 600px) {
+    .service-icons-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+
+  /* Prémium foglalási panelek - belépők, hajós vacsora, jetski, luxusautó */
+  .booking-panels {
+    margin-top: 18px;
+  }
+
+  .booking-panel {
+    margin-top: 13px;
+    border: 1px solid rgba(212,175,55,0.24);
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,255,255,0.025));
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(212,175,55,0.035);
+  }
+
+  .booking-panel summary {
+    list-style: none;
+    padding: 15px 16px;
+    color: #f3e2a7;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .booking-panel summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .booking-panel summary::after {
+    content: "+";
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    background: linear-gradient(135deg, #f4d77d, #d4af37);
+    flex: 0 0 auto;
+  }
+
+  .booking-panel[open] summary::after {
+    content: "–";
+  }
+
+  .booking-panel-body {
+    padding: 0 16px 18px;
+    color: #d7d7d7;
+  }
+
+  .booking-note {
+    margin: 10px 0 14px;
+    padding: 12px 13px;
+    border-radius: 14px;
+    border-left: 4px solid #d4af37;
+    background: rgba(212,175,55,0.08);
+    color: #e8dfbd;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .price-coming {
+    display: inline-block;
+    margin: 4px 0 14px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #d4af37;
+    border: 1px solid rgba(212,175,55,0.32);
+    background: rgba(255,255,255,0.035);
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .booking-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .booking-form-grid .full {
+    grid-column: 1 / -1;
+  }
+
+  .booking-form-grid input,
+  .booking-form-grid select,
+  .booking-form-grid textarea {
+    width: 100%;
+    padding: 13px 12px;
+    border: 1px solid rgba(212,175,55,0.20);
+    border-radius: 12px;
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+  }
+
+  .booking-form-grid select option {
+    color: #111;
+  }
+
+  .booking-form-grid textarea {
+    min-height: 86px;
+    resize: vertical;
+  }
+
+  .booking-form-grid input::placeholder,
+  .booking-form-grid textarea::placeholder {
+    color: rgba(255,255,255,0.62);
+  }
+
+  .booking-form-grid input:focus,
+  .booking-form-grid select:focus,
+  .booking-form-grid textarea:focus {
+    outline: 2px solid rgba(212,175,55,0.55);
+    border-color: rgba(212,175,55,0.55);
+  }
+
+  .booking-disclaimer {
+    margin: 14px 0;
+    padding: 13px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(212,175,55,0.18);
+    color: #cfcfcf;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .booking-whatsapp-btn {
+    width: 100%;
+    padding: 14px;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 24px rgba(37,211,102,0.20);
+  }
+
+  .booking-whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 600px) {
+    .booking-form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+
+  /* EXTRA PRÉMIUM FOGLALÁSI FELÜLET - utazási iroda hatás */
+  .booking-panels {
+    margin-top: 22px !important;
+  }
+
+  .booking-panel {
+    position: relative;
+    margin-top: 16px !important;
+    border-radius: 22px !important;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(244,215,125,0.17), transparent 34%),
+      linear-gradient(145deg, rgba(28,23,12,0.96), rgba(8,8,8,0.98)) !important;
+    border: 1px solid rgba(212,175,55,0.34) !important;
+    box-shadow:
+      0 16px 42px rgba(0,0,0,0.42),
+      inset 0 0 26px rgba(212,175,55,0.045) !important;
+  }
+
+  .booking-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(255,237,177,0.12), transparent 36%, rgba(212,175,55,0.08));
+    opacity: 0.8;
+  }
+
+  .booking-panel summary {
+    position: relative;
+    padding: 18px 18px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(212,175,55,0.045));
+    border-bottom: 1px solid rgba(212,175,55,0.16);
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+
+  .booking-panel[open] summary {
+    color: #fff1b8 !important;
+    border-bottom-color: rgba(212,175,55,0.30);
+  }
+
+  .booking-panel summary::after {
+    width: 31px !important;
+    height: 31px !important;
+    box-shadow: 0 8px 20px rgba(212,175,55,0.25);
+  }
+
+  .booking-panel-body {
+    position: relative;
+    padding: 18px 18px 20px !important;
+    animation: bookingPanelOpen 0.35s ease both;
+  }
+
+  @keyframes bookingPanelOpen {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .booking-note {
+    margin: 0 0 16px !important;
+    padding: 16px 17px !important;
+    border-radius: 18px !important;
+    border-left: 5px solid #d4af37 !important;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255,245,210,0.10), transparent 30%),
+      rgba(212,175,55,0.09) !important;
+    box-shadow: inset 0 0 22px rgba(0,0,0,0.18);
+  }
+
+  .price-coming {
+    margin: 0 0 16px !important;
+    padding: 9px 14px !important;
+    background: linear-gradient(135deg, rgba(212,175,55,0.14), rgba(255,255,255,0.035)) !important;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+  }
+
+  .booking-form-grid {
+    gap: 14px !important;
+    align-items: end;
+  }
+
+  .booking-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .booking-field.full {
+    grid-column: 1 / -1;
+  }
+
+  .booking-field label {
+    color: #f0d98a;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    text-shadow: 0 0 10px rgba(212,175,55,0.22);
+  }
+
+  .booking-field input,
+  .booking-field select,
+  .booking-field textarea,
+  .booking-form-grid input,
+  .booking-form-grid select,
+  .booking-form-grid textarea {
+    min-height: 52px;
+    border-radius: 16px !important;
+    border: 1px solid rgba(212,175,55,0.28) !important;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.055)) !important;
+    box-shadow: inset 0 0 18px rgba(0,0,0,0.18), 0 8px 18px rgba(0,0,0,0.16);
+    color: #fff !important;
+    color-scheme: dark;
+  }
+
+  .booking-field input[type="date"],
+  .booking-field input[type="time"],
+  .booking-form-grid input[type="date"],
+  .booking-form-grid input[type="time"] {
+    color: rgba(255,255,255,0.92) !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .booking-field input:focus,
+  .booking-field select:focus,
+  .booking-field textarea:focus,
+  .booking-form-grid input:focus,
+  .booking-form-grid select:focus,
+  .booking-form-grid textarea:focus {
+    outline: none !important;
+    border-color: rgba(244,215,125,0.78) !important;
+    box-shadow:
+      0 0 0 3px rgba(212,175,55,0.16),
+      0 12px 24px rgba(0,0,0,0.22),
+      inset 0 0 18px rgba(0,0,0,0.18) !important;
+  }
+
+  .booking-disclaimer {
+    margin: 16px 0 !important;
+    padding: 15px !important;
+    border-radius: 18px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(212,175,55,0.045)) !important;
+  }
+
+  .booking-whatsapp-btn {
+    padding: 16px !important;
+    border-radius: 999px !important;
+    font-size: 16px !important;
+    box-shadow: 0 14px 30px rgba(37,211,102,0.26), inset 0 0 12px rgba(255,255,255,0.12) !important;
+  }
+
+  @media (max-width: 600px) {
+    .booking-panel summary {
+      font-size: 15px;
+      padding: 17px 16px !important;
+    }
+    .booking-panel-body {
+      padding: 16px 14px 18px !important;
+    }
+  }
+
+
+
+  /* ==========================================================
+     MODERN DUBAI CONCIERGE - DEEP OCEAN TELJES ÚJRADIZÁJN
+     A tartalom és a foglalási funkciók maradnak, csak a vizuális rendszer változik.
+  ========================================================== */
+  :root {
+    --ocean-950: #031722;
+    --ocean-900: #052235;
+    --ocean-800: #07334d;
+    --ocean-700: #0a4d68;
+    --aqua: #22d9d2;
+    --aqua-soft: #8ef7f2;
+    --text: #f4fbff;
+    --muted: rgba(226,246,255,0.78);
+    --line: rgba(126,232,235,0.18);
+    --glass: rgba(255,255,255,0.075);
+    --glass-strong: rgba(255,255,255,0.115);
+    --shadow: 0 26px 70px rgba(0,0,0,0.38);
+    --radius-xl: 30px;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Inter, Arial, sans-serif !important;
+    color: var(--text) !important;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(34,217,210,0.18), transparent 26%),
+      radial-gradient(circle at 88% 16%, rgba(65,153,200,0.17), transparent 32%),
+      linear-gradient(180deg, #031722 0%, #052235 42%, #03131d 100%) !important;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.025) 45%, transparent 72%),
+      radial-gradient(circle at 50% 10%, rgba(255,255,255,0.05), transparent 36%);
+    opacity: 0.9;
+  }
+
+  header {
+    min-height: 100svh !important;
+    padding: 130px 20px 70px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden;
+    background:
+      linear-gradient(90deg, rgba(3,16,28,0.96) 0%, rgba(4,31,47,0.86) 42%, rgba(4,34,55,0.40) 100%),
+      linear-gradient(180deg, rgba(3,23,34,0.10), rgba(3,23,34,0.98)),
+      url("https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1800&q=85") !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  header::before {
+    content: "";
+    position: absolute;
+    width: 620px;
+    height: 620px;
+    right: -180px;
+    top: 12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34,217,210,0.18), transparent 64%);
+    filter: blur(12px);
+  }
+
+  header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 150px;
+    background: linear-gradient(180deg, transparent, #052235 92%);
+    pointer-events: none;
+  }
+
+  .topbar {
+    position: fixed !important;
+    top: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: min(1120px, calc(100% - 24px)) !important;
+    padding: 14px 18px !important;
+    border-radius: 24px !important;
+    justify-content: space-between !important;
+    background: rgba(3,18,31,0.62) !important;
+    border: 1px solid rgba(142,247,242,0.17) !important;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.28) !important;
+    backdrop-filter: blur(18px) saturate(1.3) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.3) !important;
+  }
+
+  .topbar::before {
+    content: "Dubai Concierge";
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+
+  .topbar::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--aqua);
+    box-shadow: 0 0 18px rgba(34,217,210,0.9);
+    margin-left: -8px;
+    margin-right: auto;
+  }
+
+  .social-icons {
+    margin-left: auto;
+    gap: 12px !important;
+  }
+
+  .social-icons a {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50%;
+    color: #eaffff !important;
+    background: rgba(255,255,255,0.075);
+    border: 1px solid rgba(142,247,242,0.18);
+    box-shadow: inset 0 0 18px rgba(255,255,255,0.04);
+  }
+
+  .social-icons a:hover {
+    color: var(--aqua-soft) !important;
+    background: rgba(34,217,210,0.12);
+    transform: translateY(-2px) !important;
+  }
+
+  .hero {
+    width: min(1120px, 100%) !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero h1,
+  h2,
+  .contact h2,
+  .reviews-card h3,
+  .card h3 {
+    font-family: Inter, Arial, sans-serif !important;
+  }
+
+  .hero h1 {
+    max-width: 720px;
+    margin: 0 0 22px !important;
+    font-size: clamp(54px, 8vw, 104px) !important;
+    line-height: 0.92 !important;
+    letter-spacing: -4px !important;
+    text-shadow: 0 18px 44px rgba(0,0,0,0.32) !important;
+  }
+
+  .hero h1 span {
+    display: inline !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: #fff !important;
+  }
+
+  .hero p {
+    margin: 0 0 26px !important;
+    max-width: 690px !important;
+    font-size: clamp(18px, 2.4vw, 26px) !important;
+    line-height: 1.48 !important;
+    color: rgba(232,248,255,0.82) !important;
+  }
+
+  .hero::after {
+    display: none !important;
+  }
+
+  .btn,
+  .reviews-btn,
+  .booking-whatsapp-btn,
+  .whatsapp-form-btn,
+  .fb-join-btn {
+    background: linear-gradient(135deg, #7af9f2, #16c7c9 48%, #078aa6) !important;
+    color: #042032 !important;
+    border: 1px solid rgba(210,255,255,0.55) !important;
+    box-shadow: 0 18px 38px rgba(22,199,201,0.22), inset 0 1px 0 rgba(255,255,255,0.45) !important;
+  }
+
+  .btn {
+    margin-top: 0 !important;
+    padding: 18px 34px !important;
+    border-radius: 999px !important;
+    font-size: 17px !important;
+    min-width: 245px;
+    text-align: center;
+  }
+
+  .btn:hover,
+  .reviews-btn:hover,
+  .booking-whatsapp-btn:hover,
+  .whatsapp-form-btn:hover,
+  .fb-join-btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 24px 54px rgba(34,217,210,0.28), inset 0 1px 0 rgba(255,255,255,0.55) !important;
+  }
+
+  .scroll-cue {
+    width: 78px !important;
+    height: 104px !important;
+    right: 32px !important;
+    left: auto !important;
+    bottom: 32px !important;
+    transform: none !important;
+    border-radius: 28px !important;
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(142,247,242,0.20) !important;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.24), inset 0 0 20px rgba(255,255,255,0.06) !important;
+  }
+
+  .scroll-arrows span {
+    border-color: rgba(142,247,242,0.78) !important;
+  }
+
+  section {
+    max-width: 1180px !important;
+    padding: 88px 20px !important;
+  }
+
+  section::before {
+    display: none !important;
+  }
+
+  section > p[style] {
+    max-width: 820px !important;
+    margin-bottom: 38px !important;
+    font-family: Inter, Arial, sans-serif !important;
+    font-style: normal !important;
+    color: rgba(226,246,255,0.78) !important;
+    text-shadow: none !important;
+    font-size: 18px !important;
+  }
+
+  h2 {
+    margin: 0 0 42px !important;
+    color: #f7fdff !important;
+    font-size: clamp(30px, 5vw, 48px) !important;
+    line-height: 1.05;
+    letter-spacing: -1.4px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  .card {
+    border-radius: var(--radius-lg) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.055)) !important;
+    border: 1px solid rgba(142,247,242,0.16) !important;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.23) !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(14px) saturate(1.15) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.15) !important;
+  }
+
+  .card::before {
+    background: linear-gradient(135deg, rgba(126,249,242,0.14), transparent 38%, rgba(255,255,255,0.05)) !important;
+  }
+
+  .card::after {
+    height: 190px !important;
+    background: linear-gradient(180deg, transparent 45%, rgba(3,23,34,0.55)) !important;
+  }
+
+  .card:hover {
+    transform: translateY(-8px) !important;
+    border-color: rgba(142,247,242,0.34) !important;
+    box-shadow: 0 28px 70px rgba(0,0,0,0.34), 0 0 34px rgba(34,217,210,0.10) !important;
+  }
+
+  .card img {
+    height: 205px !important;
+    filter: saturate(0.98) contrast(1.03) brightness(0.92) hue-rotate(2deg) !important;
+  }
+
+  .card-content {
+    padding: 22px !important;
+  }
+
+  .card h3 {
+    margin: 0 0 9px !important;
+    color: #fff !important;
+    font-size: 21px !important;
+    line-height: 1.12;
+    letter-spacing: -0.4px;
+  }
+
+  .card p,
+  details p {
+    color: rgba(226,246,255,0.74) !important;
+    line-height: 1.65 !important;
+  }
+
+  details {
+    color: #8ef7f2 !important;
+    margin-top: 18px !important;
+    border-radius: 18px;
+  }
+
+  details summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 13px 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.075);
+    border: 1px solid rgba(142,247,242,0.15);
+    color: #dffeff;
+    font-weight: 700;
+  }
+
+  details summary::-webkit-details-marker { display: none; }
+
+  details summary::after {
+    content: "›";
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #06283b;
+    background: linear-gradient(135deg, #8ef7f2, #22d9d2);
+    transform: rotate(90deg);
+    transition: transform 0.25s ease;
+    flex: 0 0 auto;
+  }
+
+  details[open] summary::after {
+    transform: rotate(-90deg);
+  }
+
+  details[open] > div,
+  details[open] > p,
+  details[open] > h3 {
+    animation: oceanOpen 0.32s ease both;
+  }
+
+  @keyframes oceanOpen {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  details h3,
+  details h4,
+  details strong,
+  h3[style],
+  h4[style],
+  strong[style] {
+    color: #8ef7f2 !important;
+    font-family: Inter, Arial, sans-serif !important;
+  }
+
+  div[style*="border:1px solid rgba(212,175,55"],
+  div[style*="border-left:4px solid #d4af37"],
+  div[style*="border:1px solid rgba(212,175,55,.38"] {
+    border-color: rgba(142,247,242,0.20) !important;
+    border-left-color: #22d9d2 !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(34,217,210,0.04)) !important;
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.025) !important;
+  }
+
+  .service-icons-row {
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .service-icon-pill {
+    color: #dffeff !important;
+    background: rgba(255,255,255,0.07) !important;
+    border-color: rgba(142,247,242,0.16) !important;
+  }
+
+  .booking-note,
+  .booking-disclaimer,
+  .price-coming {
+    border-color: rgba(142,247,242,0.20) !important;
+    border-left-color: #22d9d2 !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(34,217,210,0.045)) !important;
+    color: rgba(226,246,255,0.86) !important;
+  }
+
+  .price-coming {
+    color: #8ef7f2 !important;
+  }
+
+  .booking-panel {
+    border-radius: 22px !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.055)) !important;
+    border: 1px solid rgba(142,247,242,0.18) !important;
+    box-shadow: 0 16px 38px rgba(0,0,0,0.22), inset 0 0 28px rgba(255,255,255,0.025) !important;
+  }
+
+  .booking-panel::before {
+    background: linear-gradient(135deg, rgba(34,217,210,0.12), transparent 36%, rgba(255,255,255,0.05)) !important;
+  }
+
+  .booking-panel summary {
+    color: #eaffff !important;
+    background: rgba(255,255,255,0.055) !important;
+    border-bottom: 1px solid rgba(142,247,242,0.13) !important;
+  }
+
+  .booking-panel summary::after {
+    content: "›" !important;
+    color: #06283b !important;
+    background: linear-gradient(135deg, #8ef7f2, #22d9d2) !important;
+    transform: rotate(90deg);
+  }
+
+  .booking-panel[open] summary::after {
+    content: "›" !important;
+    transform: rotate(-90deg);
+  }
+
+  .booking-field label {
+    color: #8ef7f2 !important;
+    text-shadow: none !important;
+  }
+
+  .booking-field input,
+  .booking-field select,
+  .booking-field textarea,
+  .booking-form-grid input,
+  .booking-form-grid select,
+  .booking-form-grid textarea,
+  .transfer-form input {
+    border: 1px solid rgba(142,247,242,0.18) !important;
+    border-radius: 16px !important;
+    background: rgba(255,255,255,0.075) !important;
+    color: #fff !important;
+    box-shadow: inset 0 0 18px rgba(0,0,0,0.12) !important;
+  }
+
+  .booking-form-grid select option { color: #061b28 !important; }
+
+  .booking-field input:focus,
+  .booking-field select:focus,
+  .booking-field textarea:focus,
+  .booking-form-grid input:focus,
+  .booking-form-grid select:focus,
+  .booking-form-grid textarea:focus,
+  .transfer-form input:focus {
+    outline: none !important;
+    border-color: rgba(142,247,242,0.72) !important;
+    box-shadow: 0 0 0 4px rgba(34,217,210,0.14), inset 0 0 18px rgba(0,0,0,0.12) !important;
+  }
+
+  .why,
+  .reviews-card,
+  .contact {
+    border-radius: var(--radius-xl) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.055)) !important;
+    border: 1px solid rgba(142,247,242,0.17) !important;
+    box-shadow: var(--shadow) !important;
+  }
+
+  .contact::before {
+    content: "Modern Dubai Concierge" !important;
+    color: #8ef7f2 !important;
+    border-color: rgba(142,247,242,0.24) !important;
+    background: rgba(34,217,210,0.08) !important;
+  }
+
+  .transfer-form h3,
+  .reviews-stars,
+  .price {
+    color: #8ef7f2 !important;
+  }
+
+  .reviews-stars {
+    text-shadow: 0 0 18px rgba(34,217,210,0.45) !important;
+  }
+
+  .fb-popup-box {
+    background: rgba(3,18,31,0.86) !important;
+    border: 1px solid rgba(142,247,242,0.22) !important;
+  }
+
+  .fb-popup-box::before {
+    background: linear-gradient(135deg, #8ef7f2, #22d9d2) !important;
+  }
+
+  .lounge-toggle {
+    border-color: rgba(142,247,242,0.25) !important;
+    background: radial-gradient(circle at 30% 25%, rgba(142,247,242,0.24), rgba(34,217,210,0.10) 40%, rgba(3,18,31,0.75) 72%) !important;
+  }
+
+  .compass-disc {
+    background:
+      radial-gradient(circle, rgba(200,255,255,0.95) 0 4px, rgba(5,70,88,0.95) 5px 8px, transparent 9px),
+      conic-gradient(from 45deg, rgba(34,217,210,0.95), rgba(7,138,166,0.95), rgba(142,247,242,0.9), rgba(5,48,69,0.95), rgba(34,217,210,0.95)) !important;
+    border-color: rgba(142,247,242,0.55) !important;
+  }
+
+  .lounge-toggle.playing .music-state-dot {
+    background: #22d9d2 !important;
+    box-shadow: 0 0 12px rgba(34,217,210,0.85) !important;
+  }
+
+  .desert-breeze::before {
+    background: radial-gradient(circle at 30% 35%, rgba(34,217,210,0.12), transparent 34%),
+                linear-gradient(110deg, transparent 0%, rgba(126,249,242,0.08) 45%, transparent 78%) !important;
+  }
+
+  .sand-grain {
+    background: radial-gradient(circle, rgba(220,255,255,0.96), rgba(34,217,210,0.55) 48%, rgba(34,217,210,0) 78%) !important;
+    box-shadow: 0 0 14px rgba(34,217,210,0.25) !important;
+  }
+
+  footer {
+    background: #03131d !important;
+    color: rgba(226,246,255,0.54) !important;
+    border-top: 1px solid rgba(142,247,242,0.12);
+  }
+
+  @media (max-width: 1050px) {
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  }
+
+  @media (max-width: 600px) {
+    header {
+      min-height: 100svh !important;
+      padding: 118px 20px 52px !important;
+      background:
+        linear-gradient(180deg, rgba(3,16,28,0.72) 0%, rgba(3,16,28,0.88) 52%, rgba(3,23,34,0.98) 100%),
+        url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=82") !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+
+    .topbar {
+      top: 10px !important;
+      width: calc(100% - 20px) !important;
+      padding: 12px 14px !important;
+      border-radius: 22px !important;
+    }
+
+    .topbar::before {
+      content: "Dubai";
+      font-size: 20px;
+    }
+
+    .topbar::after {
+      width: 8px;
+      height: 8px;
+      margin-left: -4px;
+    }
+
+    .social-icons { gap: 8px !important; }
+
+    .social-icons a {
+      width: 38px !important;
+      height: 38px !important;
+    }
+
+    .social-icons svg {
+      width: 21px !important;
+      height: 21px !important;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 16vw, 74px) !important;
+      line-height: 0.94 !important;
+      letter-spacing: -3px !important;
+      margin-top: 20vh !important;
+    }
+
+    .hero p {
+      font-size: 19px !important;
+      line-height: 1.5 !important;
+      margin-bottom: 26px !important;
+    }
+
+    .btn {
+      width: 100%;
+      min-width: 0;
+      padding: 17px 22px !important;
+      font-size: 16px !important;
+    }
+
+    .scroll-cue {
+      display: none !important;
+    }
+
+    section {
+      padding: 70px 16px !important;
+    }
+
+    section > p[style] {
+      font-size: 16px !important;
+      line-height: 1.65 !important;
+      text-align: left !important;
+    }
+
+    h2 {
+      text-align: left !important;
+      font-size: 34px !important;
+      margin-bottom: 28px !important;
+    }
+
+    .cards {
+      grid-template-columns: 1fr !important;
+      gap: 18px !important;
+    }
+
+    .card {
+      border-radius: 26px !important;
+    }
+
+    .card img {
+      height: 210px !important;
+    }
+
+    .card-content {
+      padding: 22px 20px !important;
+    }
+
+    .booking-form-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .fb-popup {
+      right: 12px !important;
+      bottom: 12px !important;
+      width: calc(100vw - 24px) !important;
+    }
+
+    .lounge-player {
+      left: 12px !important;
+      bottom: 12px !important;
+      opacity: 0.36 !important;
+    }
+  }
+
+
+
+  /* ==========================================================
+     JAVÍTÁSOK - felhasználói észrevételek alapján
+     1) Bal felső Dubai / Dubai Concierge felirat eltávolítva
+     2) Social ikonok külön fejlécdoboz nélkül, jobb felső sarokban
+     3) Fő hero háttér yacht + Dubai skyline irányba cserélve
+     4) Szolgáltatás képek alatti világos csík / overlay javítva
+  ========================================================== */
+
+  header {
+    background:
+      linear-gradient(90deg, rgba(3,16,28,0.84) 0%, rgba(4,31,47,0.70) 44%, rgba(4,34,55,0.28) 100%),
+      linear-gradient(180deg, rgba(3,23,34,0.08), rgba(3,23,34,0.96)),
+      url("https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1800&q=88") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .topbar {
+    position: fixed !important;
+    top: 16px !important;
+    right: 18px !important;
+    left: auto !important;
+    transform: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    justify-content: flex-end !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .topbar::before,
+  .topbar::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .social-icons {
+    margin-left: 0 !important;
+    gap: 10px !important;
+  }
+
+  .social-icons a {
+    width: 43px !important;
+    height: 43px !important;
+    background: rgba(3,18,31,0.50) !important;
+    border: 1px solid rgba(142,247,242,0.22) !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.24), inset 0 0 18px rgba(255,255,255,0.04) !important;
+    backdrop-filter: blur(14px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.2) !important;
+  }
+
+  .card::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .card img {
+    display: block !important;
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    margin: 0 !important;
+    border: 0 !important;
+    filter: saturate(0.98) contrast(1.03) brightness(0.94) hue-rotate(2deg) !important;
+  }
+
+  .card-content {
+    margin-top: 0 !important;
+    border-top: 0 !important;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      background:
+        linear-gradient(180deg, rgba(3,16,28,0.58) 0%, rgba(3,16,28,0.82) 50%, rgba(3,23,34,0.98) 100%),
+        url("https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1200&q=88") !important;
+      background-size: cover !important;
+      background-position: center center !important;
+    }
+
+    .topbar {
+      top: 14px !important;
+      right: 14px !important;
+      left: auto !important;
+      width: auto !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .topbar::before,
+    .topbar::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .social-icons {
+      gap: 8px !important;
+    }
+
+    .social-icons a {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    .card img {
+      height: 225px !important;
+    }
+  }
+
+
+
+  /* ==========================================================
+     FACEBOOK KÖZÖSSÉG POPUP - EZÜSTÖS MODERN MINI KÁRTYA
+     Kisebb, jobb alsó sarok, áttetsző üveg hatás
+  ========================================================== */
+  .fb-popup {
+    position: fixed !important;
+    right: 22px !important;
+    bottom: 22px !important;
+    width: min(335px, calc(100vw - 32px)) !important;
+    display: none;
+    z-index: 9999 !important;
+    align-items: stretch !important;
+    justify-content: flex-end !important;
+    animation: silverPopupIn 0.55s cubic-bezier(.2,.85,.25,1) both !important;
+  }
+
+  @keyframes silverPopupIn {
+    from {
+      opacity: 0;
+      transform: translate3d(24px, 28px, 0) scale(0.94);
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  .fb-popup-box {
+    width: 100% !important;
+    position: relative !important;
+    padding: 18px 18px 16px !important;
+    border-radius: 24px !important;
+    text-align: left !important;
+    font-family: Inter, Arial, sans-serif !important;
+    color: rgba(255,255,255,0.94) !important;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.30), rgba(205,214,224,0.13) 42%, rgba(255,255,255,0.08)) !important;
+    border: 1px solid rgba(255,255,255,0.38) !important;
+    box-shadow:
+      0 22px 54px rgba(0,0,0,0.34),
+      inset 0 1px 0 rgba(255,255,255,0.44),
+      inset 0 -1px 0 rgba(255,255,255,0.08) !important;
+    backdrop-filter: blur(24px) saturate(1.25) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.25) !important;
+    overflow: hidden !important;
+  }
+
+  .fb-popup-box::before {
+    content: "💬" !important;
+    position: static !important;
+    width: 36px !important;
+    height: 36px !important;
+    margin: 0 0 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    font-size: 16px !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.90), rgba(186,196,207,0.58)) !important;
+    border: 1px solid rgba(255,255,255,0.52) !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18) !important;
+  }
+
+  .fb-popup-box::after {
+    content: "";
+    position: absolute;
+    inset: -40% -30% auto auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.24), transparent 64%);
+    pointer-events: none;
+  }
+
+  .fb-popup-box h2 {
+    margin: 0 34px 8px 0 !important;
+    color: rgba(255,255,255,0.96) !important;
+    font-size: 20px !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.35px !important;
+    font-weight: 700 !important;
+    font-family: Inter, Arial, sans-serif !important;
+  }
+
+  .fb-popup-box p {
+    margin: 0 !important;
+    max-width: 260px !important;
+    color: rgba(255,255,255,0.76) !important;
+    font-size: 13.5px !important;
+    line-height: 1.48 !important;
+    font-weight: 400 !important;
+  }
+
+  .fb-popup-buttons {
+    margin-top: 14px !important;
+    display: flex !important;
+  }
+
+  .fb-join-btn {
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+    border-radius: 999px !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1px !important;
+    color: #092432 !important;
+    background: linear-gradient(135deg, #f9fbff, #c8d1da 48%, #a8b4c0) !important;
+    border: 1px solid rgba(255,255,255,0.72) !important;
+    box-shadow:
+      0 12px 26px rgba(0,0,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.82) !important;
+  }
+
+  .fb-close-btn {
+    position: absolute !important;
+    top: 13px !important;
+    right: 13px !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    color: rgba(255,255,255,0.90) !important;
+    background: rgba(255,255,255,0.13) !important;
+    border: 1px solid rgba(255,255,255,0.24) !important;
+    line-height: 28px !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18) !important;
+  }
+
+  .fb-close-btn:hover {
+    background: rgba(255,255,255,0.24) !important;
+  }
+
+  @media (max-width: 600px) {
+    .fb-popup {
+      right: 14px !important;
+      bottom: 18px !important;
+      width: min(320px, calc(100vw - 28px)) !important;
+    }
+
+    .fb-popup-box {
+      padding: 17px 16px 15px !important;
+      border-radius: 22px !important;
+    }
+
+    .fb-popup-box h2 {
+      font-size: 18px !important;
+    }
+
+    .fb-popup-box p {
+      font-size: 13px !important;
+    }
+  }
+
+/* ==========================================================
+   HERO 2.0 - 5 képes prémium háttérváltás / 8 mp
+   Finom fade + Ken Burns mozgás, Deep Ocean filterrel
+========================================================== */
+header {
+  isolation: isolate;
+  background: #031722 !important;
+}
+
+.hero-bg-stack {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #031722;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: -3%;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.035) translate3d(0,0,0);
+  transition: opacity 1.45s ease-in-out;
+  will-change: opacity, transform;
+  filter: saturate(1.06) contrast(1.06) brightness(0.92);
+}
+
+.hero-bg-slide.is-active {
+  opacity: 1;
+  animation: heroKenBurns 8s ease-out forwards;
+}
+
+@keyframes heroKenBurns {
+  from { transform: scale(1.035) translate3d(0,0,0); }
+  to { transform: scale(1.085) translate3d(-0.8%, -0.6%, 0); }
+}
+
+.hero-bg-stack::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(3,16,28,0.96) 0%, rgba(4,31,47,0.82) 42%, rgba(4,34,55,0.40) 100%),
+    linear-gradient(180deg, rgba(3,23,34,0.06), rgba(3,23,34,0.98) 94%),
+    radial-gradient(circle at 76% 18%, rgba(34,217,210,0.17), transparent 35%);
+}
+
+header::before,
+header::after {
+  z-index: 1 !important;
+}
+
+.topbar,
+.hero,
+.scroll-cue {
+  z-index: 3 !important;
+}
+
+@media (max-width: 600px) {
+  header {
+    background: #031722 !important;
+  }
+
+  .hero-bg-slide {
+    inset: -5%;
+    background-position: center;
+  }
+
+  .hero-bg-stack::after {
+    background:
+      linear-gradient(180deg, rgba(3,16,28,0.68) 0%, rgba(3,16,28,0.88) 52%, rgba(3,23,34,0.98) 100%),
+      radial-gradient(circle at 70% 16%, rgba(34,217,210,0.12), transparent 35%);
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="desertBreeze" class="desert-breeze" aria-hidden="true"></div>
+<header>
+  <div class="hero-bg-stack" aria-hidden="true"><div class="hero-bg-slide is-active"></div><div class="hero-bg-slide"></div></div>
+  <div class="topbar">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/g/1D439ntaYg/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.25c-1.24 0-1.63.77-1.63 1.56v1.9h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/desert_cinematography?igsh=MXZzN24xOTRnMDI4eg==" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2C5.6 4 4 5.6 4 7.6v8.8c0 2 1.6 3.6 3.6 3.6h8.8c2 0 3.6-1.6 3.6-3.6V7.6c0-2-1.6-3.6-3.6-3.6H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@desert_cinematography?_r=1&_t=ZS-97VEhdRQTOC" target="_blank" aria-label="TikTok">
+        <svg viewBox="0 0 24 24">
+          <path d="M16.6 5.82c1.1.8 2.35 1.28 3.7 1.36v3.03c-1.35-.03-2.62-.41-3.7-1.06v5.98c0 3.64-2.95 6.59-6.59 6.59A6.59 6.59 0 0 1 3.42 15.13a6.59 6.59 0 0 1 7.52-6.52v3.14a3.55 3.55 0 0 0-.93-.13 3.51 3.51 0 1 0 3.51 3.51V2h3.08c.13 1.48.86 2.78 2 3.82z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero">
+    <h1><span>Utazz velünk</span> Dubaiba</h1>
+    <p>Fedezd fel Dubait magyar nyelvű segítséggel, helyi tapasztalattal és személyre szabott programokkal.</p>
+    <a href="#kapcsolat" class="btn">Érdeklődés WhatsAppon</a>
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="scroll-arrows">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="scroll-cue-hand">☝️</span>
+    </div>
+  </div>
+</header>
+<section>
+
+<p style="text-align:center; max-width:760px; margin:0 auto 34px; font-size:18px; line-height:1.8; font-family:'Playfair Display', Georgia, serif; font-style:italic; color:#d4af37; text-shadow:0 2px 12px rgba(212,175,55,.45),0 2px 8px rgba(0,0,0,.6); letter-spacing:.3px;">
+Személyre szabott, magyar nyelvű privát programok családoknak, pároknak, baráti társaságoknak, utazási irodáknak és céges csoportoknak.
+</p>
+
+  <h2>Szolgáltatásaink Dubaiban</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="61752960-E739-48F9-8A50-AD24C0085F5A.png" alt="Hotel foglalás Dubaiban">
+      <div class="card-content">
+        <h3>Hotel foglalás</h3>
+        <p>Segítünk megtalálni és lefoglalni a legjobb dubai szállást, legyen szó városi hotelről vagy tengerparti üdülőről.</p>
+        <details>
+          <summary>További info</summary>
+          <p>Segítünk kiválasztani a legjobb szállást, apartmant vagy hotelt az igényeidnek és költségvetésednek megfelelően. Magyar nyelvű segítséget nyújtunk a foglalás teljes folyamatában.</p>
+        </details>
+      </div>
+    </div>
+    <div class="card">
+      <img src="F63C7F93-FAEF-4D53-980B-DA0DA13CA0B0.png" alt="Dubai városnézés">
+      <div class="card-content">
+        <h3>Dubai városnézés</h3>
+        <p>Burj Khalifa, Dubai Marina, Palm Jumeirah, régi Dubai és modern látványosságok egy nap alatt.</p>
+        <details>
+<summary>További info</summary>
+
+<div style="margin-top:18px;color:#ddd;line-height:1.7">
+
+<h3 style="color:#d4af37;margin:0 0 12px;font-family:'Playfair Display',serif;">Privát dubaji városnézés</h3>
+
+<p>Fedezze fel Dubait saját tempójában egy exkluzív, privát városnézés keretében! Túráinkat családoknak, pároknak, baráti társaságoknak, utazási irodáknak és céges csoportoknak egyaránt ajánljuk.</p>
+
+<p>Két különböző útvonal közül választhat, attól függően, hogy Dubaj modern arcát vagy történelmi örökségét szeretné megismerni.</p>
+
+<div style="margin:20px 0;padding:16px;border:1px solid rgba(212,175,55,.25);border-radius:14px;background:rgba(255,255,255,.03);">
+<h4 style="margin:0 0 12px;color:#d4af37;">🏙️ Modern Dubai</h4>
+<ul style="padding-left:18px;margin:0 0 12px;">
+<li>Dubai Marina</li>
+<li>Palm Jumeirah & View at The Palm kilátó</li>
+<li>Bluewaters Island</li>
+<li>Souk Madinat Jumeirah (Dubai Velencéje)</li>
+<li>Museum of the Future – fotómegálló és aula</li>
+<li>Dubai Mall</li>
+<li>Burj Khalifa környéke (kívülről)</li>
+</ul>
+<p>A program során közösen ellátogatunk a View at The Palm kilátóba. A városnézés végén lehetőség nyílik egyénileg felmenni a Burj Khalifa kilátójába, amelyhez kedvezményes jegyvásárlásban segítünk.</p>
+</div>
+
+<div style="margin:20px 0;padding:16px;border:1px solid rgba(212,175,55,.25);border-radius:14px;background:rgba(255,255,255,.03);">
+<h4 style="margin:0 0 12px;color:#d4af37;">🕌 Történelmi Dubai</h4>
+<p>Fedezze fel Dubaj autentikus, arab hangulatú városrészét! Meglátogatjuk a történelmi negyedet, a tradicionális piacokat, átkelünk Abrával a patakon, ellátogatunk a világhírű Aranypiacra és a különleges hangulatú Fűszerpiacra.</p>
+<p>Igény esetén a program elején meglátogatjuk a Dubai Frame kilátót, ahonnan egyszerre csodálható meg a régi és az új Dubai.</p>
+</div>
+
+<div style="padding:14px;border-left:4px solid #d4af37;background:rgba(212,175,55,.08);border-radius:10px;">
+<strong style="color:#d4af37;">Fontos információ</strong><br>
+A kilátók belépőjegyei nem tartoznak a városnézés árába, azonban kedvezményes jegyvásárlásban szívesen segítünk vendégeinknek.
+</div>
+
+</div>
+</details>
+      </div>
+    </div>
+    <div class="card">
+      <img src="73286C25-009D-4718-80B4-6A39F137BC08.png" alt="Mleiha sivatag Sharjah vörös dűnék">
+      <div class="card-content">
+        <h3>Sivatagi élmény</h3>
+        <p>Dűnék, naplemente, fotózás, vacsora és igazi arab hangulat a sivatagban.</p>
+        <details>
+          <summary>További info</summary>
+
+          <div style="margin-top:18px;color:#ddd;line-height:1.7">
+
+            <h3 style="color:#d4af37;margin:0 0 12px;font-family:'Playfair Display',serif;">
+              Privát sivatagi élmény
+            </h3>
+
+            <p>
+              Sivatagi túráink kényelmes hotel felvétellel kezdődnek, majd a program végén visszaszállítjuk vendégeinket a szállásukra, így Önnek csak az élményekre kell koncentrálnia.
+            </p>
+
+            <div style="margin:20px 0;padding:16px;border:1px solid rgba(212,175,55,.25);border-radius:14px;background:rgba(255,255,255,.03);">
+              <h4 style="margin:0 0 12px;color:#d4af37;">🏜️ Mleiha – a vörös homokdűnék birodalma</h4>
+              <p>
+                Utunk a lenyűgöző Mleiha-sivatagba vezet, ahol vörös, lisztpuha homokdűnék és helyenként akár 100–120 méter magas dűnék várják vendégeinket.
+              </p>
+              <p>
+                Ez a különleges sivatagi terület a Sharjah-i királyi családhoz kötődik, így csak kevesen férnek hozzá ehhez az exkluzív élményhez.
+              </p>
+            </div>
+
+            <div style="margin:20px 0;padding:16px;border:1px solid rgba(212,175,55,.25);border-radius:14px;background:rgba(255,255,255,.03);">
+              <h4 style="margin:0 0 12px;color:#d4af37;">🐪 Tevefarm és dűneszafari</h4>
+              <p>
+                Megérkezés után egy tevefarm meglátogatásával indítjuk a sivatagi túrát, majd profi sivatagi sofőrökhöz ülünk át, akik izgalmas dűneszafarin vezetnek végig a hatalmas homokdűnéken.
+              </p>
+              <p>
+                A program során átélheti a valódi sivatagi kaland hangulatát, távol a tömegturizmustól, különleges természeti környezetben.
+              </p>
+            </div>
+
+            <div style="margin:20px 0;padding:16px;border:1px solid rgba(212,175,55,.25);border-radius:14px;background:rgba(255,255,255,.03);">
+              <h4 style="margin:0 0 12px;color:#d4af37;">📸 Cinematography élményvideó</h4>
+              <p>
+                Túravezetőink a program részeként telefonos fotókat és videókat készítenek vendégeinkről a sivatag legszebb pontjain.
+              </p>
+              <p>
+                A felvételekből utólag egy néhány perces, látványos Cinematography élményvideót állítunk össze, amelyet vendégeink emlékbe megkapnak.
+              </p>
+            </div>
+
+            <div style="margin:20px 0;padding:16px;border:1px solid rgba(212,175,55,.25);border-radius:14px;background:rgba(255,255,255,.03);">
+              <h4 style="margin:0 0 12px;color:#d4af37;">👗 Flying Dress fotózás és sandboard</h4>
+              <p>
+                Hölgy vendégeink számára Flying Dress ruhát is tudunk biztosítani, amelyben a vörös homokdűnék között igazán különleges és látványos fotók készülhetnek.
+              </p>
+              <p>
+                A sivatag belsejében homokdeszkát ragadunk, és lecsúszunk a dűnéken. A bevállalósabbak akár állva is kipróbálhatják a sandboardozást.
+              </p>
+              <p>
+                A programot a varázslatos sivatagi naplemente koronázza meg, majd ezt követően visszaindulunk a szállásra.
+              </p>
+            </div>
+
+            <div style="margin:22px 0;padding:18px;border:1px solid rgba(212,175,55,.38);border-radius:16px;background:linear-gradient(135deg,rgba(212,175,55,.13),rgba(255,255,255,.035));box-shadow:0 12px 34px rgba(0,0,0,.28);">
+              <h4 style="margin:0 0 12px;color:#d4af37;">⭐ Prémium sivatagi túra – beduin táborral</h4>
+              <p>
+                Az alap sivatagi program prémium kiegészítő része egy arab, beduin törzsi hangulatú sivatagi tábor, ahol fantasztikus vacsora, tevegelési lehetőség és csillagnézés várja vendégeinket.
+              </p>
+              <p>
+                A tábor Sharjah hercegnőjének saját tábora, ennek megfelelően a szolgáltatás minősége is kiemelkedő. Ez a választás azoknak ajánlott, akik egy teljesebb, prémium arab sivatagi élményre vágynak.
+              </p>
+            </div>
+
+            <div style="padding:14px;border-left:4px solid #d4af37;background:rgba(212,175,55,.08);border-radius:10px;">
+              <strong style="color:#d4af37;">Fontos információ</strong><br>
+              A prémium beduin tábor az alap sivatagi túrán felüli kiegészítő programként választható.
+            </div>
+
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=1000&q=80" alt="Abu Dhabi">
+      <div class="card-content">
+        <h3>Abu Dhabi kirándulás</h3>
+        <p>Sheikh Zayed mecset, Qasr Al Watan, Formula1 pálya és prémium egész napos program.</p>
+        <details>
+          <summary>További info</summary>
+          <h3 style="color:#d4af37;margin:0 0 12px;font-family:'Playfair Display',serif;">🇦🇪 Privát Abu Dhabi városnézés</h3>
+
+<p>Fedezze fel az Egyesült Arab Emírségek fővárosát egy egész napos, privát városnézés keretében! Kényelmes, légkondicionált járművel, magyar nyelvű kísérettel, szállodától szállodáig biztosított transzferrel gondoskodunk arról, hogy Önnek csak az élményekre kelljen figyelnie.</p>
+
+<p>Dubai elhagyása után első megállónk a különleges <strong>Last Exit</strong> pihenőhely, amely a legendás <strong>Mad Max</strong> filmek világát idézi meg. Egy rövid pihenő és fotózás után folytatjuk utunkat Abu Dhabi felé.</p>
+
+<div style="margin:20px 0;padding:16px;border:1px solid rgba(212,175,55,.25);border-radius:14px;background:rgba(255,255,255,.03);">
+<h4 style="margin:0 0 12px;color:#d4af37;">🕌 Abu Dhabi legismertebb látnivalói</h4>
+<ul style="padding-left:18px;margin:0;">
+<li>Sheikh Zayed Nagymecset</li>
+<li>Yas Marina Formula–1 versenypálya</li>
+<li>Ferrari World – fotómegálló</li>
+<li>Abu Dhabi Corniche</li>
+<li>Emirates Palace</li>
+<li>Qasr Al Watan elnöki palota</li>
+<li>Louvre Abu Dhabi (külső megtekintés, igény szerint)</li>
+<li>Etihad Towers (külső megtekintés, igény szerint)</li>
+</ul>
+</div>
+
+<p>A program során igény szerint ebédszünetet tartunk egy ajánlott étteremben, majd több fotómegállóval fedezzük fel Abu Dhabi legikonikusabb helyszíneit.</p>
+
+<div style="padding:14px;border-left:4px solid #d4af37;background:rgba(212,175,55,.08);border-radius:10px;">
+<strong style="color:#d4af37;">Fontos információ</strong><br>
+A belépőjegyek (pl. Qasr Al Watan, Louvre Abu Dhabi) nem tartalmazzák a túra árát. A mecset látogatásához megfelelő öltözet szükséges.
+</div>
+
+
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="FF0E950F-E227-4C33-B07C-B9FB576FDE0B.png" alt="Belépőjegyek, hajós vacsorák, jetski és luxusautó bérlés">
+      <div class="card-content">
+        <h3>Belépőjegyek, hajós vacsorák és bérlések</h3>
+        <p>Belépőjegyek, hajós vacsorák, jetski bérlés és luxusautó bérlés egy helyen, kedvező árakkal és magyar segítséggel.</p>
+
+        <div class="service-icons-row">
+          <div class="service-icon-pill">🎫 Belépőjegyek</div>
+          <div class="service-icon-pill">🚤 Hajós vacsorák</div>
+          <div class="service-icon-pill">🌊 Jetski bérlés</div>
+          <div class="service-icon-pill">🏎️ Luxusautó bérlés</div>
+        </div>
+
+        <div class="booking-panels">
+          <div class="booking-note" style="margin-bottom:16px;">
+            ✨ Válaszd ki a szolgáltatást, töltsd ki az adatokat, majd küldd el nekünk WhatsAppon. Mi ellenőrizzük az elérhetőséget, visszaigazoljuk, és fizetés után küldjük a jegyet vagy vouchert.
+          </div>
+          <details class="booking-panel">
+            <summary>🎫 Belépőjegyek foglalási kérelem</summary>
+            <div class="booking-panel-body">
+              <p class="booking-note">Válaszd ki a kívánt dubaji programot, add meg a dátumot, időpontot és létszámot. A pontos elérhetőséget minden esetben ellenőrizzük.</p>
+              <span class="price-coming">Árak hamarosan érkeznek</span>
+
+              <div class="booking-form-grid">
+                <select id="ticketAttraction" class="full">
+                  <option value="">Válassz belépőjegyet / attrakciót</option>
+                  <option>Burj Khalifa</option>
+                  <option>View at The Palm</option>
+                  <option>The Dubai Frame</option>
+                  <option>Museum of the Future</option>
+                  <option>Dubai Aquarium & Underwater Zoo</option>
+                  <option>Dubai Miracle Garden</option>
+                  <option>Global Village</option>
+                  <option>The Green Planet</option>
+                  <option>IMG Worlds of Adventure</option>
+                  <option>Atlantis Aquaventure Waterpark</option>
+                  <option>Lost Chambers Aquarium</option>
+                  <option>Dubai Safari Park</option>
+                  <option>Ski Dubai</option>
+                  <option>AYA Universe</option>
+                  <option>Dubai Dolphinarium</option>
+                  <option>XLine Dubai Marina</option>
+                  <option>Sky Views Observatory</option>
+                  <option>Inside Burj Al Arab</option>
+                  <option>Dubai Parks and Resorts</option>
+                  <option>Motiongate Dubai</option>
+                  <option>Legoland Dubai</option>
+                  <option>Legoland Water Park</option>
+                  <option>Real Madrid World Dubai</option>
+                  <option>Madame Tussauds Dubai</option>
+                  <option>House of Hype Dubai</option>
+                  <option>Másik program / egyedi kérés</option>
+                </select>
+                <div class="booking-field">
+                  <label for="ticketDate">📅 Dátum kiválasztása</label>
+                  <input id="ticketDate" type="date">
+                </div>
+                <div class="booking-field">
+                  <label for="ticketTime">🕒 Időpont kiválasztása</label>
+                  <input id="ticketTime" type="time">
+                </div>
+                <input id="ticketAdults" type="number" min="0" placeholder="Felnőttek száma">
+                <input id="ticketChildren" type="number" min="0" placeholder="Gyerekek száma">
+                <input id="ticketName" type="text" placeholder="Teljes név">
+                <input id="ticketPhone" type="text" placeholder="WhatsApp telefonszám">
+                <textarea id="ticketNote" class="full" placeholder="Megjegyzés / egyedi kérés"></textarea>
+              </div>
+
+              <div class="booking-disclaimer"><strong>Fontos:</strong> A foglalási kérelem elküldése nem jelent automatikus foglalást. A szolgáltatás elérhetőségét minden esetben ellenőrizzük partnerünknél. A végleges foglalás visszaigazolás és fizetés után történik. A voucher ezt követően WhatsAppon vagy e-mailben kerül elküldésre.</div>
+              <button onclick="sendTicketWhatsApp()" class="booking-whatsapp-btn">Foglalási kérelem küldése WhatsAppon</button>
+            </div>
+          </details>
+
+          <details class="booking-panel">
+            <summary>🚤 Hajós vacsora foglalási kérelem</summary>
+            <div class="booking-panel-body">
+              <p class="booking-note">Marina Dhow hajós vacsora alsó vagy felső fedélzettel. Felnőtt és gyerek árak később kerülnek feltöltésre.</p>
+              <span class="price-coming">Árak hamarosan érkeznek</span>
+
+              <div class="booking-form-grid">
+                <select id="dinnerType" class="full">
+                  <option value="">Válassz hajós vacsorát</option>
+                  <option>Marina Dhow hajó – alsó fedélzet</option>
+                  <option>Marina Dhow hajó – felső fedélzet</option>
+                </select>
+                <div class="booking-field">
+                  <label for="dinnerDate">📅 Dátum kiválasztása</label>
+                  <input id="dinnerDate" type="date">
+                </div>
+                <div class="booking-field">
+                  <label for="dinnerTime">🕒 Időpont kiválasztása</label>
+                  <input id="dinnerTime" type="time">
+                </div>
+                <input id="dinnerAdults" type="number" min="0" placeholder="Felnőttek száma">
+                <input id="dinnerChildren" type="number" min="0" placeholder="Gyerekek száma">
+                <input id="dinnerName" type="text" placeholder="Teljes név">
+                <input id="dinnerPhone" type="text" placeholder="WhatsApp telefonszám">
+                <textarea id="dinnerNote" class="full" placeholder="Megjegyzés / ételallergia / egyedi kérés"></textarea>
+              </div>
+
+              <div class="booking-disclaimer"><strong>Fontos:</strong> A foglalási kérelem elküldése nem jelent automatikus foglalást. A szolgáltatás elérhetőségét minden esetben ellenőrizzük partnerünknél. A végleges foglalás visszaigazolás és fizetés után történik. A voucher ezt követően WhatsAppon vagy e-mailben kerül elküldésre.</div>
+              <button onclick="sendDinnerWhatsApp()" class="booking-whatsapp-btn">Foglalási kérelem küldése WhatsAppon</button>
+            </div>
+          </details>
+
+          <details class="booking-panel">
+            <summary>🌊 Jetski bérlés foglalási kérelem</summary>
+            <div class="booking-panel-body">
+              <p class="booking-note">Add meg, melyik napon, hány főre és körülbelül milyen időpontra szeretnétek jetskizni.</p>
+              <span class="price-coming">Árak hamarosan érkeznek</span>
+
+              <div class="booking-form-grid">
+                <div class="booking-field">
+                  <label for="jetskiDate">📅 Dátum kiválasztása</label>
+                  <input id="jetskiDate" type="date">
+                </div>
+                <div class="booking-field">
+                  <label for="jetskiTime">🕒 Időpont kiválasztása</label>
+                  <input id="jetskiTime" type="time">
+                </div>
+                <input id="jetskiPeople" type="number" min="1" placeholder="Hány fő">
+                <input id="jetskiName" type="text" placeholder="Teljes név">
+                <input id="jetskiPhone" type="text" placeholder="WhatsApp telefonszám">
+                <textarea id="jetskiNote" class="full" placeholder="Megjegyzés / egyedi kérés"></textarea>
+              </div>
+
+              <div class="booking-disclaimer"><strong>Fontos:</strong> A foglalási kérelem elküldése nem jelent automatikus foglalást. A szolgáltatás elérhetőségét minden esetben ellenőrizzük partnerünknél. A végleges foglalás visszaigazolás és fizetés után történik. A voucher ezt követően WhatsAppon vagy e-mailben kerül elküldésre.</div>
+              <button onclick="sendJetskiWhatsApp()" class="booking-whatsapp-btn">Foglalási kérelem küldése WhatsAppon</button>
+            </div>
+          </details>
+
+          <details class="booking-panel">
+            <summary>🏎️ Luxusautó bérlés ajánlatkérés</summary>
+            <div class="booking-panel-body">
+              <p class="booking-note">A luxusautók ára és elérhetősége folyamatosan változik. Küldd el, milyen autót keresel, mikorra és mennyi időre, mi pedig visszajelzünk az aktuálisan elérhető opciókkal.</p>
+              <span class="price-coming">Egyedi ár és elérhetőség alapján</span>
+
+              <div class="booking-form-grid">
+                <input id="carType" class="full" type="text" placeholder="Milyen autó érdekel? Pl. Lamborghini, Ferrari, G-Wagon">
+                <div class="booking-field">
+                  <label for="carDate">📅 Bérlés dátuma</label>
+                  <input id="carDate" type="date">
+                </div>
+                <div class="booking-field">
+                  <label for="carDuration">⏳ Időtartam</label>
+                  <input id="carDuration" type="text" placeholder="Időtartam / napok száma">
+                </div>
+                <input id="carName" type="text" placeholder="Teljes név">
+                <input id="carPhone" type="text" placeholder="WhatsApp telefonszám">
+                <textarea id="carNote" class="full" placeholder="Megjegyzés / szállítási hely / egyedi kérés"></textarea>
+              </div>
+
+              <div class="booking-disclaimer"><strong>Fontos:</strong> Az ajánlatkérés elküldése nem jelent automatikus foglalást. Az autó elérhetőségét és árát minden esetben ellenőrizzük partnerünknél. A végleges foglalás visszaigazolás és fizetés után történik.</div>
+              <button onclick="sendCarWhatsApp()" class="booking-whatsapp-btn">Ajánlatkérés küldése WhatsAppon</button>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="44E76F37-5A80-4CEA-96A4-A3DD1375282B.png" alt="Privát reptéri transzfer Dubai">
+      <div class="card-content">
+        <h3>Privát reptéri transzfer</h3>
+        <p>Kényelmes, megbízható privát transzfer Dubaj repülőteréről a szállásodra vagy vissza. Ideális pároknak, családoknak és kisebb csoportoknak.</p>
+      <details>
+      <summary>Foglalási űrlap</summary>
+
+  <div class="transfer-form">
+    <h3>Transzfer foglalási adatlap</h3>
+
+    <input id="travelDate" type="date" placeholder="Travel Date / Utazás dátuma">
+    <input id="fullName" type="text" placeholder="Full Name / Teljes név">
+    <input id="email" type="email" placeholder="Email / E-mail cím">
+    <input id="contactNumber" type="text" placeholder="Contact Number / Telefonszám">
+    <input id="flightNumber" type="text" placeholder="Flight Number / Járatszám">
+    <input id="pickupLocation" type="text" placeholder="Pickup Location / Felvételi hely">
+    <input id="dropoffLocation" type="text" placeholder="Drop-off Location / Érkezési hely">
+    <input id="passengers" type="number" placeholder="Number of Passengers / Utasok száma">
+    <input id="suitcases" type="number" placeholder="Number of Large Suitcases / Nagy bőröndök száma">
+
+    <button onclick="sendTransferWhatsApp()" class="whatsapp-form-btn">
+      Küldés WhatsAppon
+    </button>
+  </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="why">
+    <h2>Miért velünk?</h2>
+    <p>Magyar nyelvű segítség, rugalmas programok, helyi tapasztalat, hivatalos Dubai és Abu Dhabi idegenveztői engedéllyel rendelkező munkatársak, személyes ajánlások. Nem tömegturizmus, hanem olyan Dubai, amit tényleg érdemes látni.</p>
+  </div>
+</section>
+<section class="packages">
+  <h2>Ajánlott csomagok</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-content">
+        <h3>1 napos Dubai élmény</h3>
+        <p>Megbeszélés alapján szervezett program.</p>
+        <p class="price">Egyedi ajánlat alapján</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>3 napos Dubai program</h3>
+        <p>Óvarosi piac, Modern Dubai legjava, Sivatag, Kilátók.</p>
+        <p class="price">Legnépszerűbb</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>Több napos prémium út</h3>
+        <p>Teljes Dubai élmény kényelmes tempóban, személyre szabott programokkal.</p>
+        <p class="price">Prémium csomag</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="reviews-section">
+  <div class="reviews-card">
+    <div class="reviews-stars">★★★★★</div>
+    <h3>Google értékelések</h3>
+    <p>Hamarosan itt olvashatod vendégeink visszajelzéseit, és te is megoszthatod a saját dubaji élményedet.</p>
+    <a href="#" class="reviews-btn">Értékelések megnyitása</a>
+  </div>
+</section>
+<section id="kapcsolat">
+  <div class="contact">
+    <h2>Kapcsolat</h2>
+    <p>Írj nekünk, és segítünk megtervezni a dubaji utazásodat.</p>
+    <p><strong>WhatsApp:</strong> +971 50 510 9603</p>
+    <p><strong>Email:</strong> info@utazzvelunkdubaiba.hu</p>
+    <a href="https://wa.me/+971505109603" class="btn">Írás WhatsAppon</a>
+  </div>
+</section>
+<footer>
+  <p>© 2026 Utazz velünk Dubaiba. Minden jog fenntartva.</p>
+</footer>
+
+<div class="lounge-player" aria-label="Arabic lounge háttérzene lejátszó">
+  <div id="loungeHint" class="lounge-hint">🎵 Kapcsold be az Arabic Lounge háttérzenét</div>
+  <button id="loungeToggle" class="lounge-toggle" onclick="toggleLoungeMusic()" aria-label="Háttérzene indítása vagy megállítása">
+    <span class="compass-disc"></span>
+    <span class="music-state-dot"></span>
+  </button>
+</div>
+
+<div id="fbPopup" class="fb-popup">
+  <div class="fb-popup-box">
+    <button class="fb-close-btn" onclick="closeFbPopup()" aria-label="Bezárás">×</button>
+    <h2>🇭🇺 Csatlakozz közösségünkhöz</h2>
+    <p>40 000+ magyar Dubajból és az Egyesült Arab Emírségekből.</p>
+
+    <div class="fb-popup-buttons">
+      <a href="https://www.facebook.com/share/g/18vxxkfJei/?mibextid=wwXIfr"
+         target="_blank"
+         class="fb-join-btn">
+         Csatlakozom
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const heroImages = [
+    {
+      name: 'Luxusyacht / Burj Khalifa',
+      url: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=2200&q=90'
+    },
+    {
+      name: 'Red Dunes Desert Safari',
+      url: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=2200&q=90'
+    },
+    {
+      name: 'Dubai Marina este',
+      url: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2200&q=90'
+    },
+    {
+      name: 'Sheikh Zayed mecset',
+      url: 'https://images.unsplash.com/photo-1546412414-8035e1776c9a?auto=format&fit=crop&w=2200&q=90'
+    },
+    {
+      name: 'Palm Jumeirah / türkiz tenger',
+      url: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=2200&q=90'
+    }
+  ];
+
+  const slides = Array.from(document.querySelectorAll('.hero-bg-slide'));
+  if (!slides.length) return;
+
+  let index = 0;
+  let activeLayer = 0;
+  const changeEveryMs = 8000;
+
+  slides[0].style.backgroundImage = `url("${heroImages[0].url}")`;
+  slides[0].setAttribute('data-scene', heroImages[0].name);
+
+  // Előtöltés, hogy a váltások ne villanjanak.
+  heroImages.forEach((image) => {
+    const preload = new Image();
+    preload.src = image.url;
+  });
+
+  setInterval(() => {
+    index = (index + 1) % heroImages.length;
+    const nextLayer = activeLayer === 0 ? 1 : 0;
+
+    slides[nextLayer].style.backgroundImage = `url("${heroImages[index].url}")`;
+    slides[nextLayer].setAttribute('data-scene', heroImages[index].name);
+
+    slides[nextLayer].classList.add('is-active');
+    slides[activeLayer].classList.remove('is-active');
+
+    // Ken Burns animáció újraindítása minden képnél.
+    slides[nextLayer].style.animation = 'none';
+    slides[nextLayer].offsetHeight;
+    slides[nextLayer].style.animation = '';
+
+    activeLayer = nextLayer;
+  }, changeEveryMs);
+});
+</script>
+
+</body>
+<script>
+
+const loungePlaylist = [
+  "Music3.mp3"
+];
+
+let loungeAudio = new Audio();
+let loungePlaying = false;
+let lastTrackIndex = -1;
+loungeAudio.volume = 0.08;
+
+function getRandomTrackIndex() {
+  if (loungePlaylist.length === 1) return 0;
+  let nextIndex;
+  do {
+    nextIndex = Math.floor(Math.random() * loungePlaylist.length);
+  } while (nextIndex === lastTrackIndex);
+  lastTrackIndex = nextIndex;
+  return nextIndex;
+}
+
+function playRandomLoungeTrack() {
+  const trackIndex = getRandomTrackIndex();
+  loungeAudio.src = loungePlaylist[trackIndex];
+  loungeAudio.play().then(function () {
+    loungePlaying = true;
+    updateLoungeButton();
+  }).catch(function () {
+    loungePlaying = false;
+    updateLoungeButton();
+  });
+}
+
+function toggleLoungeMusic() {
+  const hint = document.getElementById("loungeHint");
+  if (hint) hint.classList.add("hide");
+
+  if (!loungePlaying) {
+    playRandomLoungeTrack();
+  } else {
+    loungeAudio.pause();
+    loungePlaying = false;
+    updateLoungeButton();
+  }
+}
+
+function updateLoungeButton() {
+  const button = document.getElementById("loungeToggle");
+  if (!button) return;
+  if (loungePlaying) {
+    button.classList.add("playing");
+    button.setAttribute("aria-label", "Háttérzene megállítása");
+  } else {
+    button.classList.remove("playing");
+    button.setAttribute("aria-label", "Háttérzene indítása");
+  }
+}
+
+loungeAudio.addEventListener("ended", function () {
+  playRandomLoungeTrack();
+});
+
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    const hint = document.getElementById("loungeHint");
+    if (hint) hint.classList.add("hide");
+  }, 6500);
+});
+
+
+/* Időnkénti Desert Breeze homok effekt */
+const desertBreeze = document.getElementById("desertBreeze");
+
+function randomBetween(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function launchDesertBreeze() {
+  if (!desertBreeze) return;
+
+  desertBreeze.innerHTML = "";
+  desertBreeze.classList.add("active");
+
+  const grainCount = window.innerWidth < 600 ? 48 : 84;
+
+  for (let i = 0; i < grainCount; i++) {
+    const grain = document.createElement("span");
+    grain.className = "sand-grain";
+
+    if (Math.random() > 0.58) grain.classList.add("soft");
+    if (Math.random() > 0.82) grain.classList.add("spark");
+
+    grain.style.setProperty("--top", randomBetween(4, 96) + "vh");
+    grain.style.setProperty("--size", randomBetween(1.3, 5.8) + "px");
+    grain.style.setProperty("--blur", randomBetween(0, 1.1) + "px");
+    grain.style.setProperty("--duration", randomBetween(3.1, 5.0) + "s");
+    grain.style.setProperty("--delay", randomBetween(0, 1.15) + "s");
+    grain.style.setProperty("--rise", randomBetween(-90, 42) + "px");
+    grain.style.setProperty("--opacity", randomBetween(0.28, 0.78));
+
+    desertBreeze.appendChild(grain);
+  }
+
+  setTimeout(function () {
+    desertBreeze.classList.remove("active");
+  }, 5400);
+
+  setTimeout(function () {
+    desertBreeze.innerHTML = "";
+  }, 7400);
+}
+
+function scheduleDesertBreeze() {
+  const nextDelay = randomBetween(20000, 45000);
+  setTimeout(function () {
+    launchDesertBreeze();
+    scheduleDesertBreeze();
+  }, nextDelay);
+}
+
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    launchDesertBreeze();
+    scheduleDesertBreeze();
+  }, 9000);
+});
+
+
+
+function getValue(id) {
+  const el = document.getElementById(id);
+  return el ? el.value : "";
+}
+
+function openWhatsAppMessage(message) {
+  const phoneNumber = "971505109603";
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+function sendTicketWhatsApp() {
+  const message =
+`🎫 Új belépőjegy foglalási kérelem
+
+Választott attrakció / jegytípus:
+${getValue("ticketAttraction")}
+
+Dátum:
+${getValue("ticketDate")}
+
+Időpont:
+${getValue("ticketTime")}
+
+Felnőttek száma:
+${getValue("ticketAdults")}
+
+Gyerekek száma:
+${getValue("ticketChildren")}
+
+Teljes név:
+${getValue("ticketName")}
+
+WhatsApp szám:
+${getValue("ticketPhone")}
+
+Megjegyzés:
+${getValue("ticketNote")}
+
+Fontos: tudomásul veszem, hogy ez foglalási kérelem, a végleges foglalás visszaigazolás és fizetés után történik.`;
+
+  openWhatsAppMessage(message);
+}
+
+function sendDinnerWhatsApp() {
+  const message =
+`🚤 Új hajós vacsora foglalási kérelem
+
+Választott program:
+${getValue("dinnerType")}
+
+Dátum:
+${getValue("dinnerDate")}
+
+Időpont:
+${getValue("dinnerTime")}
+
+Felnőttek száma:
+${getValue("dinnerAdults")}
+
+Gyerekek száma:
+${getValue("dinnerChildren")}
+
+Teljes név:
+${getValue("dinnerName")}
+
+WhatsApp szám:
+${getValue("dinnerPhone")}
+
+Megjegyzés:
+${getValue("dinnerNote")}
+
+Fontos: tudomásul veszem, hogy ez foglalási kérelem, a végleges foglalás visszaigazolás és fizetés után történik.`;
+
+  openWhatsAppMessage(message);
+}
+
+function sendJetskiWhatsApp() {
+  const message =
+`🌊 Új jetski bérlés foglalási kérelem
+
+Dátum:
+${getValue("jetskiDate")}
+
+Időpont:
+${getValue("jetskiTime")}
+
+Hány fő:
+${getValue("jetskiPeople")}
+
+Teljes név:
+${getValue("jetskiName")}
+
+WhatsApp szám:
+${getValue("jetskiPhone")}
+
+Megjegyzés:
+${getValue("jetskiNote")}
+
+Fontos: tudomásul veszem, hogy ez foglalási kérelem, a végleges foglalás visszaigazolás és fizetés után történik.`;
+
+  openWhatsAppMessage(message);
+}
+
+function sendCarWhatsApp() {
+  const message =
+`🏎️ Új luxusautó bérlés ajánlatkérés
+
+Milyen autó érdekel:
+${getValue("carType")}
+
+Dátum:
+${getValue("carDate")}
+
+Időtartam:
+${getValue("carDuration")}
+
+Teljes név:
+${getValue("carName")}
+
+WhatsApp szám:
+${getValue("carPhone")}
+
+Megjegyzés:
+${getValue("carNote")}
+
+Fontos: tudomásul veszem, hogy ez ajánlatkérés, a végleges foglalás visszaigazolás és fizetés után történik.`;
+
+  openWhatsAppMessage(message);
+}
+
+function sendTransferWhatsApp() {
+  const phoneNumber = "971505109603";
+
+  const message =
+`🚖 Új transzfer foglalás
+
+Travel Date / Utazás dátuma:
+${document.getElementById("travelDate").value}
+
+Full Name / Teljes név:
+${document.getElementById("fullName").value}
+
+Email / E-mail cím:
+${document.getElementById("email").value}
+
+Contact Number / Telefonszám:
+${document.getElementById("contactNumber").value}
+
+Program / Választott program:
+Privát reptéri transzfer
+
+Flight Number / Járatszám:
+${document.getElementById("flightNumber").value}
+
+Pickup Location / Felvételi hely:
+${document.getElementById("pickupLocation").value}
+
+Drop-off Location / Érkezési hely:
+${document.getElementById("dropoffLocation").value}
+
+Number of Passengers / Utasok száma:
+${document.getElementById("passengers").value}
+
+Number of Large Suitcases / Nagy bőröndök száma:
+${document.getElementById("suitcases").value}`;
+
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+let fbPopupShown = sessionStorage.getItem("fbPopupClosed") === "1";
+
+function showFbPopup() {
+  const popup = document.getElementById("fbPopup");
+  if (!fbPopupShown && popup) {
+    popup.style.display = "flex";
+    fbPopupShown = true;
+  }
+}
+
+window.addEventListener("scroll", function () {
+  const scrollPosition = window.scrollY + window.innerHeight;
+  const pageHeight = document.documentElement.scrollHeight;
+
+  if (scrollPosition > pageHeight * 0.72) {
+    showFbPopup();
+  }
+});
+
+function closeFbPopup() {
+  const popup = document.getElementById("fbPopup");
+  if (popup) {
+    popup.style.display = "none";
+    sessionStorage.setItem("fbPopupClosed", "1");
+  }
+}
+</script>
+</html>
