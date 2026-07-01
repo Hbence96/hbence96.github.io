@@ -2098,6 +2098,125 @@
     }
   }
 
+
+
+  /* ==========================================================
+     JAVÍTÁSOK - felhasználói észrevételek alapján
+     1) Bal felső Dubai / Dubai Concierge felirat eltávolítva
+     2) Social ikonok külön fejlécdoboz nélkül, jobb felső sarokban
+     3) Fő hero háttér yacht + Dubai skyline irányba cserélve
+     4) Szolgáltatás képek alatti világos csík / overlay javítva
+  ========================================================== */
+
+  header {
+    background:
+      linear-gradient(90deg, rgba(3,16,28,0.84) 0%, rgba(4,31,47,0.70) 44%, rgba(4,34,55,0.28) 100%),
+      linear-gradient(180deg, rgba(3,23,34,0.08), rgba(3,23,34,0.96)),
+      url("https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1800&q=88") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .topbar {
+    position: fixed !important;
+    top: 16px !important;
+    right: 18px !important;
+    left: auto !important;
+    transform: none !important;
+    width: auto !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    justify-content: flex-end !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .topbar::before,
+  .topbar::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .social-icons {
+    margin-left: 0 !important;
+    gap: 10px !important;
+  }
+
+  .social-icons a {
+    width: 43px !important;
+    height: 43px !important;
+    background: rgba(3,18,31,0.50) !important;
+    border: 1px solid rgba(142,247,242,0.22) !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.24), inset 0 0 18px rgba(255,255,255,0.04) !important;
+    backdrop-filter: blur(14px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(1.2) !important;
+  }
+
+  .card::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .card img {
+    display: block !important;
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    margin: 0 !important;
+    border: 0 !important;
+    filter: saturate(0.98) contrast(1.03) brightness(0.94) hue-rotate(2deg) !important;
+  }
+
+  .card-content {
+    margin-top: 0 !important;
+    border-top: 0 !important;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      background:
+        linear-gradient(180deg, rgba(3,16,28,0.58) 0%, rgba(3,16,28,0.82) 50%, rgba(3,23,34,0.98) 100%),
+        url("https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1200&q=88") !important;
+      background-size: cover !important;
+      background-position: center center !important;
+    }
+
+    .topbar {
+      top: 14px !important;
+      right: 14px !important;
+      left: auto !important;
+      width: auto !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .topbar::before,
+    .topbar::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .social-icons {
+      gap: 8px !important;
+    }
+
+    .social-icons a {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    .card img {
+      height: 225px !important;
+    }
+  }
+
 </style>
 </head>
 <body>
